@@ -3,6 +3,8 @@ package org.academy.kata.implementation.daniilrusanov;
 
 import org.academy.kata.IEight;
 
+import java.math.BigInteger;
+
 public class Eight implements IEight {
     @Override
     public int liters(double time) {
@@ -46,6 +48,26 @@ public class Eight implements IEight {
 
     @Override
     public boolean am_i_wilson(double n) {
-        return false;
+        if(!isPrime(n)) return false;
+        BigInteger factorialVal = factorial(n-1);
+        BigInteger modulus = BigInteger.valueOf(n).multiply(BigInteger.valueOf(n));
+        return factorialVal.add(BigInteger.ONE).mod(modulus).equals(BigInteger.ZERO);
     }
+
+    private static boolean isPrime(long n) {
+        if (n <= 1) return false;
+        for (long i = 2; i * i <= n; i++) {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
+
+    private static BigInteger factorial(long n) {
+        BigInteger result = BigInteger.ONE;
+        for (long i = 2; i <= n; i++) {
+            result = result.multiply(BigInteger.valueOf(i));
+        }
+        return result;
+    }
+
 }
