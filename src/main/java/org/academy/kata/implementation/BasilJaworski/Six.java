@@ -47,7 +47,6 @@ public class Six implements ISix {
         return row_num;
     }
 
-
     public static String row_get(String str, int idx){
         String row = "";
         boolean writer = false;
@@ -70,7 +69,6 @@ public class Six implements ISix {
 
         return row;
     }
-
 
     public static double row_price(String str){
         if (str == null || str.trim().isEmpty()) {
@@ -105,7 +103,6 @@ public class Six implements ISix {
         double price_dob = Double.parseDouble(price_str.trim());
         return price_dob;
     }
-
 
     public static String remove_add(String str){
         String str_clear = str.replaceAll("(?<!\\d)\\.|\\.(?!\\d)|[^a-zA-Z0-9. \\n]", "");
