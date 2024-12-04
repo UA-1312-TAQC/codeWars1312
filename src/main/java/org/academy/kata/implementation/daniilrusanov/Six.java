@@ -35,6 +35,28 @@ public class Six implements ISix {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return "";
+        if(lstOfArt.length == 0 || lstOf1stLetter.length == 0)
+            return "";
+
+        int[] quantities = new int[lstOf1stLetter.length];
+
+        for (String art : lstOfArt) {
+            String[] parts = art.trim().split(" ");
+            String letter = parts[0].substring(0, 1);
+
+            for (int i = 0; i < lstOf1stLetter.length; i++) {
+                if(letter.equals(lstOf1stLetter[i]))
+                    quantities[i] += Integer.parseInt(parts[1]);
+            }
+        }
+
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < lstOf1stLetter.length; i++) {
+            res.append("(").append(lstOf1stLetter[i]).append(" : ").append(quantities[i]).append(")");
+            if (i != lstOf1stLetter.length-1) {
+                res.append(" - ");
+            }
+        }
+        return res.toString();
     }
 }
