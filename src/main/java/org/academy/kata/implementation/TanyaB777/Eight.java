@@ -3,6 +3,8 @@ package org.academy.kata.implementation.TanyaB777;
 
 import org.academy.kata.IEight;
 
+import java.util.Arrays;
+
 public class Eight implements IEight {
     @Override
     public int liters(double time) {
@@ -41,7 +43,9 @@ public class Eight implements IEight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        return Arrays.stream(numbers)
+                .filter(num -> num % divider == 0)
+                .toArray();
     }
 
     @Override
