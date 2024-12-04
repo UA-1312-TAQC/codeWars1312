@@ -31,7 +31,12 @@ public class Eight implements IEight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < str.length(); i++)
+            result.append(str.charAt(i));
+
+        return Integer.parseInt(result.toString());
     }
 
     @Override
