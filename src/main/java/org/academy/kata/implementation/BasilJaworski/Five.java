@@ -27,6 +27,32 @@ public class Five implements IFive {
 
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+        String str = String.valueOf(n);
+        int len = str.length();
+        int minIdx = -1;
+        int insertIdx = -1;
+        long minValue = n;
+
+        for (int i = 0; i < len; i++) {
+            char digit = str.charAt(i);
+
+            for (int j = 0; j < len; j++) {
+                if (i == j) continue;
+
+                StringBuilder newStr = new StringBuilder(str);
+                newStr.deleteCharAt(i);
+                newStr.insert(j, digit);
+
+                long newNum = Long.parseLong(newStr.toString());
+
+                if (newNum < minValue) {
+                    minValue = newNum;
+                    minIdx = i;
+                    insertIdx = j;
+                }
+            }
+        }
+
+        return new long[] {minValue, minIdx, insertIdx};
     }
 }
