@@ -21,7 +21,20 @@ public class Eight implements IEight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        int[] newArray = new int[array.length];
+
+        for(int i = 0; i < array.length; i++) {
+            if (isInteger(Math.sqrt(array[i])))
+                newArray[i] = (int) Math.sqrt(array[i]);
+            else
+                newArray[i] = array[i] * array[i];
+        }
+
+        return newArray;
+    }
+
+    private static boolean isInteger(double number) {
+        return number % 1 == 0;
     }
 
     @Override
