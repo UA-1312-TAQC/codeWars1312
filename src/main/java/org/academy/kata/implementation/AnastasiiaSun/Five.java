@@ -7,7 +7,31 @@ import java.math.BigInteger;
 public class Five implements IFive {
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        long lastPrime = -1;
+        for (long i = m; i <= n; i++) {
+            if (isPrime(i)) {
+                if (lastPrime != -1 && i - lastPrime == g) {
+                    return new long[]{lastPrime, i};
+                }
+                lastPrime = i;
+            }
+        }
+        return null;
+    }
+
+    private static boolean isPrime(long inputNumber) {
+        boolean isItPrime = true;
+        if (inputNumber <= 1) {
+            isItPrime = false;
+        } else {
+            for (int i = 2; i <= inputNumber / 2; i++) {
+                if ((inputNumber % i) == 0) {
+                    isItPrime = false;
+                    break;
+                }
+            }
+        }
+        return isItPrime;
     }
 
     @Override
