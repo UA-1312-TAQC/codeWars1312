@@ -46,6 +46,18 @@ public class Eight implements IEight {
 
     @Override
     public boolean am_i_wilson(double n) {
-        return false;
+        if (n <= 1) return false;
+        if (n == 2) return false;
+        if (n%2 == 0) return false;
+
+        for (int i = 3; i <= Math.sqrt(n); i += 2) {
+            if (n%i == 0) return false;
+        }
+
+        double factorial = 1;
+        for (double i = 2; i < n; i++) {
+            factorial = (factorial * i) % (n*n);
+        }
+        return (factorial+1) % (n*n) == 0;
     }
 }
