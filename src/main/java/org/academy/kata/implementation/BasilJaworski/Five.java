@@ -22,7 +22,20 @@ public class Five implements IFive {
 
     @Override
     public double solve(double m) {
-        return 0;
+        double left = 0.0, right = 1.0;
+
+        while (right - left > 1e-12) {
+            double mid = (left + right) / 2.0;
+            double value = mid / Math.pow(1 - mid, 2);
+
+            if (value > m) {
+                right = mid;
+            } else {
+                left = mid;
+            }
+        }
+
+        return (left + right) / 2.0;
     }
 
     @Override
