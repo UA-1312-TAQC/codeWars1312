@@ -12,7 +12,14 @@ public class Five implements IFive {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        if (n < 0) {
+            return 0;
+        }
+        int zeroCount = 0;
+        for (long i = 5; i <= n; i *= 5) {
+            zeroCount += (int) (n / i);
+        }
+        return zeroCount;
     }
 
     @Override
