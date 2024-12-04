@@ -5,7 +5,17 @@ import org.academy.kata.ISix;
 public class Six implements ISix {
     @Override
     public long findNb(long m) {
-        return 0;
+        long n = 1;
+        long volume = 0;
+
+        while (volume < m){
+            volume += n*n*n;
+            if (volume==m){
+                return n;
+            }
+            n++;
+        }
+        return -1;
     }
 
     @Override
