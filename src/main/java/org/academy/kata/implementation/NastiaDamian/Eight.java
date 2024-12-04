@@ -11,7 +11,10 @@ public class Eight implements IEight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        if (length <= 0 || width <= 0 || height <= 0) {
+            throw new IllegalArgumentException("All arguments must be greater than zero.");
+        }
+        return length * width * height;
     }
 
     @Override
