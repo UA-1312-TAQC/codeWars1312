@@ -12,7 +12,16 @@ public class Five implements IFive {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        int count = 0;
+        int div;
+
+        while (n >= 5) {
+            div = n / 5;
+            count += div;
+            n = div;
+        }
+
+        return count;
     }
 
     @Override
