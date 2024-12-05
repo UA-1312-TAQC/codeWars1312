@@ -5,7 +5,16 @@ import org.academy.kata.ISix;
 public class Six implements ISix {
     @Override
     public long findNb(long m) {
-        return 0;
+    int n = 0;
+    long count = 0;
+    while(count < m){
+      n++;
+      count += (long)Math.pow(n, 3);
+    }
+    if(count > m){
+      return -1;
+    }
+    return n;
     }
 
     @Override
