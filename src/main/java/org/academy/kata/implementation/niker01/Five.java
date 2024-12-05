@@ -4,6 +4,8 @@ import org.academy.kata.IFive;
 
 import java.math.BigInteger;
 
+import java.math.BigInteger;
+
 public class Five implements IFive {
     @Override
     public long[] gap(int g, long m, long n) {
@@ -22,7 +24,19 @@ public class Five implements IFive {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        BigInteger a = BigInteger.ONE;  
+        BigInteger b = BigInteger.ONE;  
+        BigInteger sum = a.add(b);      
+        if (n.equals(BigInteger.ZERO)) {
+            return BigInteger.valueOf(4); 
+        }
+        for (BigInteger i = BigInteger.valueOf(2); i.compareTo(n) <= 0; i = i.add(BigInteger.ONE)) {
+            BigInteger next = a.add(b);  
+            sum = sum.add(next);          
+            a = b;                       
+            b = next;                     
+        }
+        return sum.multiply(BigInteger.valueOf(4));
     }
 
     @Override
