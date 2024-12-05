@@ -3,7 +3,18 @@ package org.academy.kata.implementation.MisterV03;
 
 import org.academy.kata.IEight;
 
+import java.util.Vector;
+
 public class Eight implements IEight {
+
+    private static int[] vectorToIntegerArray(Vector<Integer> in){
+        int[] res = new int[in.size()];
+        for(int i = 0; i<res.length; i++) {
+            res[i] = in.get(i);
+        }
+        return res;
+    }
+
     @Override
     public int liters(double time) {
         return 0;
@@ -41,7 +52,12 @@ public class Eight implements IEight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        Vector<Integer> res = new Vector<Integer>();
+        for (int number : numbers) {
+            if (number % divider == 0)
+                res.add(number);
+        }
+        return vectorToIntegerArray(res);
     }
 
     @Override
