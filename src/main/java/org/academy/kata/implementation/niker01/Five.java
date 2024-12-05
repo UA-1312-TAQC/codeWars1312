@@ -22,7 +22,7 @@ public class Five implements IFive {
 
     @Override
     public double solve(double m) {
-        return 0;
+        return (2 * m + 1 - java.lang.Math.sqrt(4 * m + 1)) / (2 * m);
     }
 
     @Override
