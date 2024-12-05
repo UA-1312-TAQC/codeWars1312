@@ -18,7 +18,9 @@ public class Eight implements IEight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        double result = mpg * (1.609344 / 4.54609188);
+        result = Math.round(result * 100.0) / 100.0;
+        return (float) result;
     }
 
     @Override
