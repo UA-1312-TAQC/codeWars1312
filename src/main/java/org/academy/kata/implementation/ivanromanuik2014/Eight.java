@@ -1,6 +1,5 @@
 package org.academy.kata.implementation.ivanromanuik2014;
 
-
 import org.academy.kata.IEight;
 
 public class Eight implements IEight {
@@ -16,7 +15,10 @@ public class Eight implements IEight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        float coefImpGallonToLiter = 4.54609188f;
+        float coefMileToKilometer = 1.609344f;
+        float result = (mpg * coefMileToKilometer) / coefImpGallonToLiter;
+        return Math.round(result * 100.0f) / 100.0f;
     }
 
     @Override
@@ -26,7 +28,22 @@ public class Eight implements IEight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (input == null || input.length == 0) {
+            return new int[0];
+        }
+
+        int countPositives = 0;
+        int sumNegatives = 0;
+
+        for (int i : input) {
+            if (i > 0) {
+                countPositives++;
+            } else if (i < 0) {
+                sumNegatives += i;
+            }
+        }
+
+        return new int[] { countPositives, sumNegatives };
     }
 
     @Override
