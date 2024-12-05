@@ -10,6 +10,17 @@ public class Seven implements ISeven {
 
     @Override
     public String seriesSum(int n) {
-        return "";
+    if(n == 0){
+      return "0.00";
+    }
+    double result = 0;
+    double i = 1;
+    int count = 0;
+    while(count < n){
+      result += 1/i;
+      i += 3;
+      count++;
+    }
+    return String.format("%.2f", result);
     }
 }
