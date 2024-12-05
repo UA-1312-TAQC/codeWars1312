@@ -56,7 +56,7 @@ public class Six implements ISix {
         return sumOfSquares / rainfallData.length;
     }
 
-    private static double[] getDataForTown(String town, String strng) {
+    private double[] getDataForTown(String town, String strng) {
         if (strng == null || town == null || town.isEmpty()) {
             return null;
         }
