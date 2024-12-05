@@ -2,9 +2,6 @@ package org.academy.kata.implementation.niker01;
 
 import org.academy.kata.ISix;
 
-
-
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -94,33 +91,33 @@ public class Six implements ISix {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-    if (lstOfArt == null || lstOfArt.length == 0 || lstOf1stLetter == null || lstOf1stLetter.length == 0) {
-      return "";
-    }
-    java.util.Map<String, Integer> categoryTotals = new java.util.HashMap<>();
-    for (String category : lstOf1stLetter) {
-      categoryTotals.put(category, 0);
-    }
-    
-    for (String entry : lstOfArt) {
-      String[] parts = entry.split(" ");
-      String code = parts[0];
-      int quantity = Integer.parseInt(parts[1]);
-      String category = String.valueOf(code.charAt(0));
-      
-      if (categoryTotals.containsKey(category)) {
-        categoryTotals.put(category, categoryTotals.get(category) + quantity);
-      }
-    }
-    
-    StringBuilder result = new StringBuilder();
-    for (String category : lstOf1stLetter) {
-      if (result.length() > 0) {
-        result.append(" - ");
-      }
-      result.append("(").append(category).append(" : ").append(categoryTotals.get(category)).append(")");
-    }
-    
-    return result.toString();
+        if (lstOfArt == null || lstOfArt.length == 0 || lstOf1stLetter == null || lstOf1stLetter.length == 0) {
+            return "";
+        }
+        java.util.Map<String, Integer> categoryTotals = new java.util.HashMap<>();
+        for (String category : lstOf1stLetter) {
+            categoryTotals.put(category, 0);
+        }
+
+        for (String entry : lstOfArt) {
+            String[] parts = entry.split(" ");
+            String code = parts[0];
+            int quantity = Integer.parseInt(parts[1]);
+            String category = String.valueOf(code.charAt(0));
+
+            if (categoryTotals.containsKey(category)) {
+                categoryTotals.put(category, categoryTotals.get(category) + quantity);
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+        for (String category : lstOf1stLetter) {
+            if (result.length() > 0) {
+                result.append(" - ");
+            }
+            result.append("(").append(category).append(" : ").append(categoryTotals.get(category)).append(")");
+        }
+
+        return result.toString();
     }
 }
