@@ -36,7 +36,7 @@ public class Eight implements IEight {
 
     @Override
     public double TwoDecimalPlaces(double number) {
-        return 0;
+        return Math.ceil(number*100)/100;
     }
 
     @Override
