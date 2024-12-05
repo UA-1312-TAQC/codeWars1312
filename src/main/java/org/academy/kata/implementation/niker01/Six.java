@@ -2,6 +2,12 @@ package org.academy.kata.implementation.niker01;
 
 import org.academy.kata.ISix;
 
+
+
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Six implements ISix {
     @Override
     public long findNb(long m) {
