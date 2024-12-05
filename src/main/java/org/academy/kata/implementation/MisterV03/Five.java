@@ -5,9 +5,37 @@ import org.academy.kata.IFive;
 import java.math.BigInteger;
 
 public class Five implements IFive {
+
+    private static boolean isPrime(long n) {
+        for(long i = 2; i<=n/2; i++) {
+            if(n%i==0)
+                return false;
+        }
+        return true;
+    }
+
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        long maxGap = 1;
+        long i = 0;
+        long startIndex = 0;
+        for(i = m; i<=n; i++) {
+            if(isPrime(i))
+                break;
+        }
+        startIndex = i;
+        for(; i<=n; i++) {
+            if(isPrime(i)) {
+                if(g==maxGap) {
+                    return new long[]{(long)startIndex, (long)i};
+                }
+                maxGap = 1;
+                startIndex = i;
+                continue;
+            }
+            maxGap++;
+        }
+        return null;
     }
 
     @Override
