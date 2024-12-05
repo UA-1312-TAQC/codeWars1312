@@ -48,6 +48,11 @@ public class Eight implements IEight {
 
     @Override
     public boolean am_i_wilson(double n) {
-        return false;
+    if(n == 5 || n == 13 || n == 563){
+      return true;
+    }
+    else{
+      return false;
+    }
     }
 }
