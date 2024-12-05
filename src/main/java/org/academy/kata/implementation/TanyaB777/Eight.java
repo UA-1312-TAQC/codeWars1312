@@ -62,7 +62,7 @@ public class Eight implements IEight {
         return numerator.mod(denominator).equals(BigInteger.ZERO);
     }
 
-    private static boolean isPrime(long n) {
+    private boolean isPrime(long n) {
         if (n < 2) return false;
 
         for (long i = 2; i * i <= n; i++) {
@@ -72,7 +72,7 @@ public class Eight implements IEight {
         return true;
     }
 
-    private static BigInteger factorial(long n) {
+    private BigInteger factorial(long n) {
         if (n < 0) {
             throw new IllegalArgumentException("Factorial is not defined for negative numbers.");
         }
