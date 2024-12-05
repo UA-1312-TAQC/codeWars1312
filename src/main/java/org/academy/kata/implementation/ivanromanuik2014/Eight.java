@@ -1,6 +1,5 @@
 package org.academy.kata.implementation.ivanromanuik2014;
 
-
 import org.academy.kata.IEight;
 
 public class Eight implements IEight {
@@ -36,7 +35,7 @@ public class Eight implements IEight {
 
     @Override
     public double TwoDecimalPlaces(double number) {
-        return 0;
+        return Math.round(number * 100.0d) / 100.0d;
     }
 
     @Override
