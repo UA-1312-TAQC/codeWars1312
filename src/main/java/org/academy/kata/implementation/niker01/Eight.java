@@ -6,7 +6,9 @@ import org.academy.kata.IEight;
 public class Eight implements IEight {
     @Override
     public int liters(double time) {
-        return 0;
+        double litresHour = 0.5; 
+        double result = time * litresHour; 
+        return (int) result; 
     }
 
     @Override
