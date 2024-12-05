@@ -3,7 +3,13 @@ package org.academy.kata.implementation.MisterV03;
 
 import org.academy.kata.IEight;
 
+import java.text.DecimalFormat;
+
 public class Eight implements IEight {
+
+    static double GALLON = 4.54609188;
+    static double MILE = 1.609344;
+
     @Override
     public int liters(double time) {
         return 0;
@@ -16,7 +22,9 @@ public class Eight implements IEight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        float result = (float) ((float)mpg/GALLON*MILE);
+        DecimalFormat df = new DecimalFormat("#.##");
+        return Float.valueOf(df.format(result));
     }
 
     @Override
