@@ -95,7 +95,7 @@ public class Six implements ISix {
                 toFind, wins, draws, losses, scored, conceded, points);
     }
 
-    private static void updateStats(Map<String, int[]> teamStats, String teamName, int scored, int conceded) {
+    private void updateStats(Map<String, int[]> teamStats, String teamName, int scored, int conceded) {
         if (!teamStats.containsKey(teamName)) {
             teamStats.put(teamName, new int[5]);
         }
