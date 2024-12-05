@@ -37,7 +37,19 @@ public class Eight implements IEight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if(input == null || input.length == 0){
+            return new int[]{};
+        }
+        int[] result = {0, 0};
+        for(int i = 0; i < input.length; i++){
+          if(input[i] > 0){
+            result[0] += 1 ;
+          }
+          else if(input[i] < 0){
+            result[1] += input[i];
+          }
+        }
+        return result;
     }
 
     @Override
