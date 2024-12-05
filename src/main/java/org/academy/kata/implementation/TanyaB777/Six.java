@@ -65,10 +65,10 @@ public class Six implements ISix {
                     }
                 } catch (NumberFormatException e) {
                     if (!foundScore1) {
-                        if (team1.length() > 0) team1.append(" ");
+                        if (!team1.isEmpty()) team1.append(" ");
                         team1.append(word);
                     } else {
-                        if (team2.length() > 0) team2.append(" ");
+                        if (!team2.isEmpty()) team2.append(" ");
                         team2.append(word);
                     }
                 }
