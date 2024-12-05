@@ -46,6 +46,19 @@ public class Eight implements IEight {
 
     @Override
     public boolean am_i_wilson(double n) {
-        return false;
+        if (n <= 1) {
+            return false;
+        }
+        double factorial = calculateFactorial(n - 1);
+        double denominator = n * n;
+        return (factorial + 1) % denominator == 0;
+    }
+
+    private static double calculateFactorial(double n) {
+        long fact = 1;
+        for (int i = 2; i <= n; i++) {
+            fact = fact * i;
+        }
+        return fact;
     }
 }
