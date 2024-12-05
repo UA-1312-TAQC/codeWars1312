@@ -3,7 +3,18 @@ package org.academy.kata.implementation.MisterV03;
 
 import org.academy.kata.IEight;
 
+import java.math.BigInteger;
+
 public class Eight implements IEight {
+
+    private static BigInteger calculateFactorial(long N){
+        BigInteger res = new BigInteger("1");
+        for(int i = 2; i<=N; i++){
+            res = res.multiply(new BigInteger(String.valueOf(i)));
+        }
+        return res;
+    }
+
     @Override
     public int liters(double time) {
         return 0;
@@ -46,6 +57,11 @@ public class Eight implements IEight {
 
     @Override
     public boolean am_i_wilson(double n) {
-        return false;
+        if(n < 2)
+            return false;
+        BigInteger numerator = calculateFactorial((long)n-1).add(BigInteger.valueOf(1L));
+        long denominator = (long)Math.pow(n, 2);
+        BigInteger result = numerator.mod(new BigInteger(String.valueOf(denominator)));
+        return result.compareTo(BigInteger.ZERO) == 0;
     }
 }
