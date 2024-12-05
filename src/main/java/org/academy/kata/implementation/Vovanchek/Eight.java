@@ -41,7 +41,23 @@ public class Eight implements IEight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        int count = 0;
+        for (int number : numbers) {
+            if (number % divider == 0) {
+                count++;
+            }
+        }
+
+        int[] results = new int[count];
+        int index = 0;
+
+        for (int number : numbers) {
+            if (number % divider == 0) {
+                results[index++] = number;
+            }
+        }
+
+        return results;
     }
 
     @Override
