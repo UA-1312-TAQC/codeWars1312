@@ -22,7 +22,14 @@ public class Five implements IFive {
 
     @Override
     public double solve(double m) {
-        return 0;
+        if (m <= 0) {
+            throw new IllegalArgumentException();
+        }
+        double discriminant = Math.sqrt(4.0 * m + 1.0);
+
+        double x = (2.0 * m + 1.0 - discriminant) / (2.0 * m);
+
+        return x;
     }
 
     @Override
