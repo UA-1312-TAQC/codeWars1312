@@ -73,7 +73,7 @@ public class Eight implements IEight {
     }
 
     @Override
-    public boolean am_i_wilson(double n) {
+    public boolean am_i_wilson(long n) {
         if (n < 2) return false;
 
         double factorial = 1;

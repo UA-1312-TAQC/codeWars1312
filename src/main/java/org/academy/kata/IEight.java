@@ -17,5 +17,5 @@ public interface IEight {
 
     int[] divisibleBy(int[] numbers, int divider);
 
-    boolean am_i_wilson(double n);
+    boolean am_i_wilson(long n);
 }

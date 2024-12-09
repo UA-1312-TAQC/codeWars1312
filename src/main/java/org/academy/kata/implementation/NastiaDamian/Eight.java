@@ -80,7 +80,7 @@ public class Eight implements IEight {
 
 
     @Override
-    public boolean am_i_wilson(double n) {
+    public boolean am_i_wilson(long n) {
         return n == 5 || n == 13 || n == 563;
     }
 }

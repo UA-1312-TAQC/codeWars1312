@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Five implements IFive {
     @Override
-    public static long[] gap(int g, long m, long n) {
+    public long[] gap(int g, long m, long n) {
         long last = Long.MIN_VALUE;
         for (long i = m; i < n; i++) {
             if (isPrime(i)) {

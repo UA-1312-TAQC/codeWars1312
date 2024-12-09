@@ -98,7 +98,7 @@ public class Eight implements IEight {
     }
 
     @Override
-    public boolean am_i_wilson(double nd) {
+    public boolean am_i_wilson(long nd) {
         long n = (long) nd;
         if (n<=1) return false;
         if (check_prime(n) == false) return false;
