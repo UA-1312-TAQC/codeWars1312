@@ -65,7 +65,18 @@ public class Five implements IFive {
 
     @Override
     public double solve(double m) {
-        return 0;
+        if (m <= 0) {
+            throw new IllegalArgumentException("Parameter m must be greater than 0.");
+        }
+
+        double sqrtTerm = Math.sqrt(1 + 4 * m);
+        double x = ((2 * m + 1) - sqrtTerm) / (2 * m);
+
+        if (Double.isNaN(x) || Double.isInfinite(x)) {
+            throw new ArithmeticException("Result is not a valid double.");
+        }
+
+        return x;
     }
 
     @Override
