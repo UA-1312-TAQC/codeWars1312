@@ -60,7 +60,36 @@ public class Eight implements IEight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (input == null || input.length == 0) {
+            return new int[0];
+        }
+
+        int[] result = new int[2];
+        long countPositive = 0;
+        long sumNegative = 0;
+
+
+        for (int value : input) {
+            if (value == 0) {
+                continue;
+            }
+
+            if (value > 0) {
+                countPositive++;
+            } else {
+                sumNegative += value;
+            }
+        }
+
+        result[0] = (int) countPositive;
+
+        if (sumNegative > Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("The sum of negative values is too large to represent as an integer.");
+        } else {
+            result[1] = (int) sumNegative;
+        }
+
+        return result;
     }
 
     @Override
