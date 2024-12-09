@@ -61,7 +61,7 @@ public class Eight implements IEight {
 
     @Override
     public double TwoDecimalPlaces(double number) {
-        return 0;
+        return Math.round(number*100.0) / 100.0;
     }
 
     @Override
