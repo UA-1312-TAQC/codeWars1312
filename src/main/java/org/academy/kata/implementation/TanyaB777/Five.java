@@ -45,7 +45,22 @@ public class Five implements IFive {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        return fibonacci(n.add(BigInteger.ONE)).multiply(BigInteger.valueOf(4));
+    }
+
+    private BigInteger fibonacci(BigInteger n) {
+        BigInteger a = BigInteger.ZERO;
+        BigInteger b = BigInteger.ONE;
+        BigInteger sum = BigInteger.ZERO;
+
+        for (BigInteger i = BigInteger.ZERO; i.compareTo(n) <= 0; i = i.add(BigInteger.ONE)) {
+            sum = sum.add(a);
+            BigInteger temp = a.add(b);
+            a = b;
+            b = temp;
+        }
+
+        return sum;
     }
 
     @Override
