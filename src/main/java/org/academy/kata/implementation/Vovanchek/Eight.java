@@ -16,7 +16,13 @@ public class Eight implements IEight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        
+      final float mls_to_km = 1.609344f;
+      final float gal_to_lit = 4.54609188f;
+      float kpl = (mpg * mls_to_km) / gal_to_lit;
+      kpl = Math.round(kpl * 100.0f) / 100.0f;
+      return kpl;
+        
     }
 
     @Override
