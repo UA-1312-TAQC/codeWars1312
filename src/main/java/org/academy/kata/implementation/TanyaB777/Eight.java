@@ -39,7 +39,23 @@ public class Eight implements IEight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        int max_value_sqrt = (int) Math.sqrt(Integer.MAX_VALUE);
+        int[] result = new int[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            int sqrt = (int) Math.round(Math.sqrt(array[i]));
+
+            if (sqrt * sqrt == array[i]) {
+                result[i] = sqrt;
+            } else {
+                if (array[i] < max_value_sqrt)
+                    result[i] = array[i] * array[i];
+                else {
+                    throw new IllegalArgumentException("The square root of the input value is too large to represent as an integer.");
+                }
+            }
+        }
+        return result;
     }
 
     @Override
