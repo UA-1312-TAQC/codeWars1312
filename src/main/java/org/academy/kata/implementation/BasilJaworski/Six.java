@@ -5,7 +5,21 @@ import org.academy.kata.ISix;
 public class Six implements ISix {
     @Override
     public long findNb(long m) {
-        return 0;
+        long cubes_num = 1;
+        long cubes_volume = 0;
+
+        for (; cubes_volume<m; cubes_num++){
+            cubes_volume += cubes_num*cubes_num*cubes_num;
+        }
+        System.out.println(m);
+        System.out.println(cubes_volume);
+
+        if (cubes_volume==m){
+            return cubes_num-1;
+        } else {
+            return -1;
+        }
+
     }
 
     @Override
