@@ -56,7 +56,7 @@ public class Eight implements IEight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return Integer.valueOf(str);
     }
 
     @Override
