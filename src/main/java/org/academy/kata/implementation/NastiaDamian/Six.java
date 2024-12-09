@@ -108,6 +108,37 @@ public class Six implements ISix {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return "";
+        if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) {
+            return "";
+        }
+
+        java.util.Map<String, Integer> categoryCount = new java.util.HashMap<>();
+
+        for (String category : lstOf1stLetter) {
+            categoryCount.put(category, 0);
+        }
+
+        for (String book : lstOfArt) {
+            String[] parts = book.split(" ");
+            String code = parts[0];
+            int quantity = Integer.parseInt(parts[1]);
+            String category = code.substring(0, 1);
+
+            if (categoryCount.containsKey(category)) {
+                categoryCount.put(category, categoryCount.get(category) + quantity);
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < lstOf1stLetter.length; i++) {
+            String category = lstOf1stLetter[i];
+            int count = categoryCount.get(category);
+            result.append("(").append(category).append(" : ").append(count).append(")");
+            if (i < lstOf1stLetter.length - 1) {
+                result.append(" - ");
+            }
+        }
+
+        return result.toString();
     }
 }
