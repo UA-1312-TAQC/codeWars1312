@@ -2,6 +2,9 @@ package org.academy.kata.implementation.kiyanovskaa;
 
 import org.academy.kata.ISix;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Six implements ISix {
     @Override
     public long findNb(long m) {
@@ -109,7 +112,65 @@ public class Six implements ISix {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        return "";
+        String[] matches = resultSheet.split(",");
+        int wins = 0, draws = 0, losses = 0;
+        int scored = 0, conceded = 0, points = 0;
+        boolean teamPlayed = false;
+
+        Pattern pattern = Pattern.compile("([A-Za-z0-9 ]+) (\\d+) ([A-Za-z0-9 ]+) (\\d+)");
+
+        for (String match : matches) {
+            Matcher matcher = pattern.matcher(match);
+
+            if (!matcher.find()) {
+                continue;
+            }
+
+            String team1 = matcher.group(1).trim();
+            int score1 = Integer.parseInt(matcher.group(2).trim());
+            String team2 = matcher.group(3).trim();
+            int score2 = Integer.parseInt(matcher.group(4).trim());
+
+            if (match.matches(".*\\d+\\.\\d+.*")) {
+                return "Error(float number):" + match;
+            }
+
+            if (team1.equals(toFind) || team2.equals(toFind)) {
+                teamPlayed = true;
+                if (team1.equals(toFind)) {
+                    scored += score1;
+                    conceded += score2;
+                    if (score1 > score2) {
+                        wins++;
+                        points += 3;
+                    } else if (score1 == score2) {
+                        draws++;
+                        points += 1;
+                    } else {
+                        losses++;
+                    }
+                } else if (team2.equals(toFind)) {
+                    scored += score2;
+                    conceded += score1;
+                    if (score2 > score1) {
+                        wins++;
+                        points += 3;
+                    } else if (score2 == score1) {
+                        draws++;
+                        points += 1;
+                    } else {
+                        losses++;
+                    }
+                }
+            }
+        }
+
+        if (!teamPlayed) {
+            return toFind + ":This team didn't play!";
+        }
+
+        return String.format("%s:W=%d;D=%d;L=%d;Scored=%d;Conceded=%d;Points=%d",
+                toFind, wins, draws, losses, scored, conceded, points);
     }
 
     @Override
