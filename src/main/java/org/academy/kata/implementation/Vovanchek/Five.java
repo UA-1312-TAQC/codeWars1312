@@ -71,7 +71,22 @@ public class Five implements IFive {
 
     @Override
     public double solve(double m) {
-        return 0;
+        double low = 0.0;
+        double high = 1.0;
+        double eps = 1e-12;
+
+        while (high - low > eps) {
+            double mid = (low + high) / 2;
+            double f = mid / Math.pow(1 - mid, 2) - m;
+
+            if (f > 0) {
+                high = mid; 
+            } else {
+                low = mid; 
+            }
+        }
+
+        return (low + high) / 2;
     }
 
     @Override
