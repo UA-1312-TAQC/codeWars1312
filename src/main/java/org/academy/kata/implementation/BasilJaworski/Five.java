@@ -1,5 +1,7 @@
 package org.academy.kata.implementation.BasilJaworski;
 
+
+import java.math.BigInteger;
 import org.academy.kata.IFive;
 
 import java.math.BigInteger;
@@ -22,7 +24,22 @@ public class Five implements IFive {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        if (n.equals(BigInteger.ZERO)) {
+            return BigInteger.valueOf(4);
+        }
+
+        BigInteger a = BigInteger.ONE;
+        BigInteger b = BigInteger.ONE;
+        BigInteger sum = a.add(b);
+
+        for (BigInteger i = BigInteger.valueOf(2); i.compareTo(n) <= 0; i = i.add(BigInteger.ONE)) {
+            BigInteger next = a.add(b);
+            sum = sum.add(next);
+            a = b;
+            b = next;
+        }
+
+        return sum.multiply(BigInteger.valueOf(4));
     }
 
     @Override
