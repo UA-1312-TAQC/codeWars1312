@@ -6,9 +6,8 @@ import org.academy.kata.IEight;
 public class Eight implements IEight {
     @Override
     public int liters(double time) {
-        return 0;
+        return (int) (time * 0.5);
     }
-
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
         return 0;
