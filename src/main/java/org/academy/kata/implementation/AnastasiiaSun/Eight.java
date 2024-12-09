@@ -22,7 +22,11 @@ public class Eight implements IEight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        for (int i = 0; i < array.length; i++) {
+            int sqrt = (int) Math.sqrt(array[i]);
+            array[i] = (sqrt * sqrt == array[i]) ? sqrt : array[i] * array[i];
+        }
+        return array;
     }
 
     @Override
