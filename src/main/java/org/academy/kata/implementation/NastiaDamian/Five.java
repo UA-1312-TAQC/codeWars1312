@@ -43,7 +43,21 @@ public class Five implements IFive {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        if (n.equals(BigInteger.ZERO)) {
+            return BigInteger.valueOf(4);
+        }
+
+        BigInteger fib1 = BigInteger.ONE;
+        BigInteger fib2 = BigInteger.ONE;
+        BigInteger fibNext = BigInteger.ZERO;
+
+        for (BigInteger i = BigInteger.valueOf(2); i.compareTo(n.add(BigInteger.valueOf(2))) <= 0; i = i.add(BigInteger.ONE)) {
+            fibNext = fib1.add(fib2);
+            fib1 = fib2;
+            fib2 = fibNext;
+        }
+
+        return fib2.subtract(BigInteger.ONE).multiply(BigInteger.valueOf(4));
     }
 
     @Override
