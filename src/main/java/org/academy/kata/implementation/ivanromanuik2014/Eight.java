@@ -1,6 +1,5 @@
 package org.academy.kata.implementation.ivanromanuik2014;
 
-
 import org.academy.kata.IEight;
 
 public class Eight implements IEight {
@@ -30,7 +29,22 @@ public class Eight implements IEight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (input == null || input.length == 0) {
+            return new int[0];
+        }
+
+        int countPositives = 0;
+        int sumNegatives = 0;
+
+        for (int i : input) {
+            if (i > 0) {
+                countPositives++;
+            } else if (i < 0) {
+                sumNegatives += i;
+            }
+        }
+
+        return new int[] { countPositives, sumNegatives };
     }
 
     @Override
