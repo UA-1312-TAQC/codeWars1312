@@ -73,6 +73,17 @@ public class Eight implements IEight {
 
     @Override
     public boolean am_i_wilson(double n) {
-        return false;
+        if (n <= 1) {
+            return false;
+        }
+
+        long p = n - 1;
+        long fact = 1;
+        long mod = n * n;
+        for (long i = 1; i <= p; i++) {
+            fact = (fact * i) % mod;
+        }
+
+        return (fact + 1) % mod == 0;
     }
 }
