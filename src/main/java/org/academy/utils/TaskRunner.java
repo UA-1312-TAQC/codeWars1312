@@ -122,4 +122,10 @@ public class TaskRunner {
 
         System.out.println("The next donation should be: " + result);
     }
+    public void runSeriesSum() {
+        System.out.print("Enter the integer number: ");
+        int num = reader.readInt();
+        String result = author.getSeven().seriesSum(num);
+        System.out.println("Result: " + result);
+    }
 }
