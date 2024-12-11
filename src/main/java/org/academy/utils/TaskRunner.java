@@ -65,4 +65,15 @@ public class TaskRunner {
         }
     }
 
+    public void nbaCup() {
+        System.out.println("Input result sheet:");
+        String resultSheet = reader.readString();
+
+        System.out.println("Input team name:");
+        String teamName = reader.readString();
+
+        String result = author.getSix().nbaCup(resultSheet, teamName);
+        System.out.println(result);
+    }
+
 }
