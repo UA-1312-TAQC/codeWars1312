@@ -6,7 +6,9 @@ import org.academy.kata.IEight;
 public class Eight implements IEight {
     @Override
     public int liters(double time) {
-        return 0;
+        double litres = 0.5;
+        //Casting to (int) removes the fractional part rounding down
+        return (int)(time * litres);
     }
 
     @Override
