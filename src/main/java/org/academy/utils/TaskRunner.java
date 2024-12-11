@@ -85,4 +85,16 @@ public class TaskRunner {
         System.out.println("And put it to the index: " + result[2]);
     }
 
+
+    public void nba() {
+        System.out.println("Input result sheet:");
+        String resultSheet = reader.readString();
+
+        System.out.println("Input team name:");
+        String teamName = reader.readString();
+
+        String result = author.getSix().nbaCup(resultSheet, teamName);
+        System.out.println(result);
+    }
+
 }
