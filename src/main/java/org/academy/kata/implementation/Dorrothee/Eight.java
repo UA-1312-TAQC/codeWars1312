@@ -3,6 +3,9 @@ package org.academy.kata.implementation.Dorrothee;
 
 import org.academy.kata.IEight;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Eight implements IEight {
     @Override
     public int liters(double time) {
@@ -38,7 +41,11 @@ public class Eight implements IEight {
 
     @Override
     public double TwoDecimalPlaces(double number) {
-        return 0;
+        BigDecimal bd = new BigDecimal(number);
+        bd = bd.setScale(2, RoundingMode.HALF_UP);
+        double result = bd.doubleValue();
+
+        return result;
     }
 
     @Override
