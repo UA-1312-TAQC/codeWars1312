@@ -139,4 +139,15 @@ public class TaskRunner {
         String result = author.getSeven().seriesSum(num);
         System.out.println("Result: " + result);
     }
+
+    public void runFindNb() {
+        System.out.println("Input the total volume of the building as a long number:");
+        long volume = reader.readLong();
+        long result = author.getSix().findNb(volume);
+        if (result == -1) {
+            System.out.println("No solution exists for volume: " + volume);
+        } else {
+            System.out.println("For volume " + volume + ", you need " + result + " cubes");
+        }
+    }
 }
