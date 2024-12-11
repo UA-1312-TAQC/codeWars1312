@@ -15,6 +15,17 @@ public class TaskRunner {
         System.out.println("In " + hours + " Nathan will drink " + result + " liters");
     }
 
+    public void getVolumeOfCuboid() {
+        System.out.println("input double length");
+        double length = reader.readDouble();
+        System.out.println("input double width");
+        double width = reader.readDouble();
+        System.out.println("input double height");
+        double height = reader.readDouble();
+        double result = author.getEight().getVolumeOfCuboid(length, width, height);
+        System.out.println("Volume of a cuboid: %.2f%n" + result);
+    }
+
     public void runAmIWilson() {
         System.out.println("input prime number");
         int number = (int)reader.readLong();
@@ -37,6 +48,11 @@ public class TaskRunner {
         System.out.println("Variance of rainfall: " + varianceResult);
     }
 
-
+    public void Converter() {
+        System.out.println("Enter miles per imperial gallon (mpg) to convert into kilometers per liter (kpl):");
+        float mpg = reader.readFloat();
+        float result = author.getEight().mpgToKPM(mpg);
+        System.out.println("Kilometers per liter (kpl): " + result);
+    };
 
 }
