@@ -12,7 +12,14 @@ public class Five implements IFive {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        int result = 0;
+
+        int k = (int) Math.floor(Math.log(n) / Math.log(5));
+        for (int i = 1; i <= k; i++) {
+            result += n / Math.pow(5, i);
+        }
+
+        return result;
     }
 
     @Override
