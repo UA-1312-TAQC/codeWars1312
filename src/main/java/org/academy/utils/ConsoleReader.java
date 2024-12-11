@@ -24,7 +24,13 @@ public class ConsoleReader {
     }
 
     public double readDouble() {
-        return 0.0;
+        while (true) {
+            try {
+                return Double.parseDouble(reader.readLine());
+            } catch (IOException | NumberFormatException e) {
+                System.out.println("Input should be a double.");
+            }
+        }
     }
 
     public String readString() {
