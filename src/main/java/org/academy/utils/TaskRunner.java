@@ -55,4 +55,14 @@ public class TaskRunner {
         System.out.println("Kilometers per liter (kpl): " + result);
     };
 
+    public void SquareRoot() {
+        System.out.println("Enter integers separated by spaces:");
+        int[] array = reader.readIntArr();
+        int[] resultArray = author.getEight().squareOrSquareRoot(array);
+        System.out.println("Result array:");
+        for (int el : resultArray) {
+            System.out.print(el + " ");
+        }
+    }
+
 }
