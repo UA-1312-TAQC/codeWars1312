@@ -3,6 +3,7 @@ package org.academy.utils;
 public class TaskRunner {
     Author author;
     ConsoleReader reader;
+
     public TaskRunner(Author author) {
         this.author = author;
         this.reader = new ConsoleReader();
@@ -16,21 +17,28 @@ public class TaskRunner {
     }
 
     public void getVolumeOfCuboid() {
-        System.out.println("input double length");
+        System.out.println("Input double length:");
         double length = reader.readDouble();
-        System.out.println("input double width");
+        System.out.println("Input double width:");
         double width = reader.readDouble();
-        System.out.println("input double height");
+        System.out.println("Input double height:");
         double height = reader.readDouble();
         double result = author.getEight().getVolumeOfCuboid(length, width, height);
         System.out.println("Volume of a cuboid: %.2f%n" + result);
     }
 
+    public void stringToNumber() {
+        System.out.println("Input string of numbers: ");
+        String str = reader.readString();
+        int result = author.getEight().stringToNumber(str);
+        System.out.println("Converted string to number: " + result);
+    }
+
     public void runAmIWilson() {
         System.out.println("input prime number");
-        int number = (int)reader.readLong();
+        int number = (int) reader.readLong();
         boolean result = author.getEight().am_i_wilson(number);
-        System.out.println("number " + number + (result?" is wilson prime" : " is not wilson prime"));
+        System.out.println("number " + number + (result ? " is wilson prime" : " is not wilson prime"));
     }
 
     public void Rainfall() {
@@ -53,6 +61,8 @@ public class TaskRunner {
         float mpg = reader.readFloat();
         float result = author.getEight().mpgToKPM(mpg);
         System.out.println("Kilometers per liter (kpl): " + result);
-    };
+    }
+
+    ;
 
 }
