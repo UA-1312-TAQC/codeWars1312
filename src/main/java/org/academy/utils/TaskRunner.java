@@ -37,6 +37,11 @@ public class TaskRunner {
         System.out.println("Variance of rainfall: " + varianceResult);
     }
 
-
+    public void Converter() {
+        System.out.println("Enter miles per imperial gallon (mpg) to convert into kilometers per liter (kpl):");
+        float mpg = reader.readFloat();
+        float result = author.getEight().mpgToKPM(mpg);
+        System.out.println("Kilometers per liter (kpl): " + result);
+    };
 
 }
