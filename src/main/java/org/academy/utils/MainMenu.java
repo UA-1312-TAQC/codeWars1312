@@ -64,8 +64,16 @@ public class MainMenu {
             System.out.println("enter task id: ");
             int id = reader.readInt();
             switch (id){
-                case 1:
+                case 8:
+                    taskRunner.runDivisibleBy();
+                    isRun = false;
+                    break;
+                case 9:
                     taskRunner.runAmIWilson();
+                    isRun = false;
+                    break;
+                case 10:
+                    taskRunner.runNewAvg();
                     isRun = false;
                     break;
                 default:
