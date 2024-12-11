@@ -19,11 +19,28 @@ public class MainMenu {
     }
 
     public void printTasks(){
-        System.out.println("1. task1");
-        System.out.println("2. task2");
-        System.out.println("3. task3");
-        System.out.println("4. task4");
-
+        System.out.println("1. Keep Hydrated");
+        System.out.println("2. Volume of a Cuboid");
+        System.out.println("3. Miles per gallon to kilometers per liter");
+        System.out.println("4. To square(root) or not to square(root)");
+        System.out.println("5. Count of positives / sum of negatives");
+        System.out.println("6. Convert a String to a Number");
+        System.out.println("7. Formatting decimal places");
+        System.out.println("8. Find numbers which are divisible by given number");
+        System.out.println("9. Wilson primes");
+        System.out.println("10. Looking for a benefactor");
+        System.out.println("11. Sum of the first nth term of Series");
+        System.out.println("12. Build a pile of Cubes");
+        System.out.println("13. Easy Balance Checking");
+        System.out.println("14. Floating-point Approximation (I)");
+        System.out.println("15. Rainfall");
+        System.out.println("16. Ranking NBA teams");
+        System.out.println("17. Help the bookseller");
+        System.out.println("18. Gap in Primes");
+        System.out.println("19. Number of trailing zeros of N");
+        System.out.println("20. Perimeter of squares in a rectangle");
+        System.out.println("21. Which x for that sum?");
+        System.out.println("22. Find the smallest");
     }
 
     private void setAuthor(){
