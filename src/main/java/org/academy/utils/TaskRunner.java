@@ -22,5 +22,21 @@ public class TaskRunner {
         System.out.println("number " + number + (result?" is wilson prime" : " is not wilson prime"));
     }
 
+    public void Rainfall() {
+        System.out.println("Input town name:");
+        String town = reader.readString();
+
+        System.out.println("Input rainfall data:");
+        String data = reader.readString();
+
+        double meanResult = author.getSix().mean(town, data);
+        double varianceResult = author.getSix().variance(town, data);
+
+        System.out.println("For the town " + town + ":");
+        System.out.println("Mean rainfall: " + meanResult);
+        System.out.println("Variance of rainfall: " + varianceResult);
+    }
+
+
 
 }
