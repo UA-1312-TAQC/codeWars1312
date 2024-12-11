@@ -75,4 +75,26 @@ public class TaskRunner {
         }
     }
 
+    public void findTheSmallest() {
+        System.out.print("Plese enter the long number: ");
+        long num = reader.readLong();
+        String numStr = Long.toString(num);
+        long[] result = author.getFive().smallest(num);
+        System.out.println("The smallest number created is: " + result[0]);
+        System.out.println("We takes the: " + numStr.charAt((int)result[0]));
+        System.out.println("And put it to the index: " + result[2]);
+    }
+
+
+    public void nba() {
+        System.out.println("Input result sheet:");
+        String resultSheet = reader.readString();
+
+        System.out.println("Input team name:");
+        String teamName = reader.readString();
+
+        String result = author.getSix().nbaCup(resultSheet, teamName);
+        System.out.println(result);
+    }
+
 }
