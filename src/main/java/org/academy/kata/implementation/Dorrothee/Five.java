@@ -17,7 +17,20 @@ public class Five implements IFive {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        BigInteger perimeterRecs = BigInteger.ONE;
+        BigInteger previous = BigInteger.ONE;
+        BigInteger current = BigInteger.ONE;
+
+        for (BigInteger i = BigInteger.ONE; i.compareTo(n) <= 0; i = i.add(BigInteger.ONE)) {
+            perimeterRecs = perimeterRecs.add(current);
+
+            //Move to the next Fibonacci number
+            BigInteger next = previous.add(current);
+            previous = current;
+            current = next;
+        }
+
+        return perimeterRecs.multiply(BigInteger.valueOf(4));
     }
 
     @Override
