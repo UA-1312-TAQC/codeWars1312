@@ -25,7 +25,32 @@ public class Six implements ISix {
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        String[] towns = strng.split("\n");
+
+        for (String townData : towns) {
+            String[] parts = townData.split(":");
+            String townName = parts[0].trim();
+            if (townName.equals(town)) {
+
+                String[] rainfalls = parts[1].trim().split(",");
+                double sum = 0;
+                double sumOfSquares = 0;
+
+                for (String rainfall : rainfalls) {
+
+                    String[] split = rainfall.trim().split(" ");
+                    double value = Double.parseDouble(split[1].trim());
+                    sum += value;
+                    sumOfSquares += value * value;
+                }
+
+                double mean = sum / rainfalls.length;
+                //Variance = Sum of Squared Differences / Number of Observations
+                return (sumOfSquares / rainfalls.length) - (mean * mean);
+            }
+        }
+
+        return -1;
     }
 
     @Override
