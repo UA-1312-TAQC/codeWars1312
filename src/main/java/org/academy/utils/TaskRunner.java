@@ -37,10 +37,10 @@ public class TaskRunner {
     }
 
     public void runAmIWilson() {
-        System.out.println("input prime number");
-        int number = (int) reader.readLong();
+        System.out.println("Input prime number:");
+        long number = reader.readLong();
         boolean result = author.getEight().am_i_wilson(number);
-        System.out.println("number " + number + (result ? " is wilson prime" : " is not wilson prime"));
+        System.out.println("Number " + number + (result ? " is wilson prime" : " is not wilson prime"));
     }
 
     public void Rainfall() {
