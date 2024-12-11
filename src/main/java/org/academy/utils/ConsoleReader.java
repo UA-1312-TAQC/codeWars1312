@@ -34,7 +34,14 @@ public class ConsoleReader {
     }
 
     public String readString() {
-        return "";
+        while (true) {
+            try {
+                return reader.readLine();
+            } catch (IOException e) {
+                System.out.println("Input should be a string in one line.");
+            }
+            
+        }
     }
 
     public float readFloat() {
