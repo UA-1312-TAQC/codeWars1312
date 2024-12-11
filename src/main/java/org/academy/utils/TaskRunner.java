@@ -110,4 +110,16 @@ public class TaskRunner {
 
         System.out.println("Numbers divisible by " + divider + ": " + Arrays.toString(result));
     }
+
+    public void runNewAvg() {
+        System.out.println("Enter the list of donations separated by spaces:");
+        double[] donations = reader.readDoubleArr();
+
+        System.out.println("Enter the target average:");
+        double targetAvg = reader.readDouble();
+
+        long result = author.getSeven().newAvg(donations, targetAvg);
+
+        System.out.println("The next donation should be: " + result);
+    }
 }
