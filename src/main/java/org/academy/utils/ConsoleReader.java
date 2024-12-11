@@ -38,11 +38,25 @@ public class ConsoleReader {
     }
 
     public float readFloat() {
-        return 0;
+        while (true) {
+            try {
+                System.out.print("Enter a float value: ");
+                return Float.parseFloat(reader.readLine());
+            } catch (IOException | NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid float value.");
+            }
+        }
     }
 
     public BigInteger readBigInteger() {
-        return BigInteger.ZERO;
+        while (true) {
+            try {
+                System.out.print("Enter a BigInteger value: ");
+                return new BigInteger(reader.readLine());
+            } catch (IOException | NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid BigInteger value.");
+            }
+        }
     }
 
 
@@ -77,8 +91,19 @@ public class ConsoleReader {
     }
 
     public double[] readDoubleArr() {
-        return new double[]{};
+    while (true) {
+        try {
+            String[] in = reader.readLine().trim().split("\\s+");
+            double[] arr = new double[in.length];
+            for (int i = 0; i < in.length; i++) {
+                arr[i] = Double.parseDouble(in[i]);
+            }
+            return arr;
+        } catch (IOException | NumberFormatException e) {
+            System.out.println("Input should be doubles separated by spaces.");
+        }
     }
+}
 
 
 }
