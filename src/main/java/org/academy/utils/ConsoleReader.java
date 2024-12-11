@@ -59,7 +59,6 @@ public class ConsoleReader {
         }
     }
 
-
     public long readLong() {
         while (true) {
             try {
@@ -87,23 +86,33 @@ public class ConsoleReader {
     }
 
     public String[] readStringArr() {
-        return new String[]{};
+        while (true) {
+            try {
+                String[] arr = reader.readLine().trim().split(",\\s*");
+                if (arr.length == 0) {
+                    System.out.println("The input cannot be empty. Please try again.");
+                    continue;
+                }
+                return arr;
+            } catch (IOException e) {
+                System.out.println("The input string value should be separated by a comma and a space.");
+            }
+        }
     }
 
     public double[] readDoubleArr() {
-    while (true) {
-        try {
-            String[] in = reader.readLine().trim().split("\\s+");
-            double[] arr = new double[in.length];
-            for (int i = 0; i < in.length; i++) {
-                arr[i] = Double.parseDouble(in[i]);
+        while (true) {
+            try {
+                String[] in = reader.readLine().trim().split("\\s+");
+                double[] arr = new double[in.length];
+                for (int i = 0; i < in.length; i++) {
+                    arr[i] = Double.parseDouble(in[i]);
+                }
+                return arr;
+            } catch (IOException | NumberFormatException e) {
+                System.out.println("Input should be doubles separated by spaces.");
             }
-            return arr;
-        } catch (IOException | NumberFormatException e) {
-            System.out.println("Input should be doubles separated by spaces.");
         }
     }
-}
-
 
 }
