@@ -22,5 +22,16 @@ public class TaskRunner {
         System.out.println("number " + number + (result?" is wilson prime" : " is not wilson prime"));
     }
 
+    public void runCountPositivesSumNegatives() {
+        System.out.println("input array of integers");
+        int[] numbers = reader.readIntArr();
+        int[] result = author.getEight().countPositivesSumNegatives(numbers);
+        if (result.length == 0) {
+            System.out.println("Result: empty array");
+        } else {
+            System.out.println("Count of positives: " + result[0]);
+            System.out.println("Sum of negatives: " + result[1]);
+        }
+    }
 
 }
