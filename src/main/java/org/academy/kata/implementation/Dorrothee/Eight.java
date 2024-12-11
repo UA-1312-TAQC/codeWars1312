@@ -3,6 +3,9 @@ package org.academy.kata.implementation.Dorrothee;
 
 import org.academy.kata.IEight;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Eight implements IEight {
     @Override
     public int liters(double time) {
@@ -19,7 +22,17 @@ public class Eight implements IEight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        final float mile = 1.609344f;
+        final float gallon = 4.54609188f;
+
+        float kilosPerLiter = mpg * mile / gallon;
+
+        //To round off the result
+        BigDecimal bd = new BigDecimal(kilosPerLiter);
+        bd = bd.setScale(2, RoundingMode.HALF_UP);
+        float kpl = bd.floatValue();
+
+        return kpl;
     }
 
     @Override
