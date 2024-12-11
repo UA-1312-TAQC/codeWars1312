@@ -1,5 +1,7 @@
 package org.academy.utils;
 
+import java.util.Arrays;
+
 public class TaskRunner {
     Author author;
     ConsoleReader reader;
@@ -55,4 +57,15 @@ public class TaskRunner {
         System.out.println("Kilometers per liter (kpl): " + result);
     };
 
+    public void runDivisibleBy(){
+        System.out.println("Enter integer numbers, separated by spaces:");
+        int[] numbers = reader.readIntArr();
+
+        System.out.println("Enter the divider:");
+        int divider = reader.readInt();
+
+        int[] result = author.getEight().divisibleBy(numbers, divider);
+
+        System.out.println("Numbers divisible by " + divider + ": " + Arrays.toString(result));
+    }
 }
