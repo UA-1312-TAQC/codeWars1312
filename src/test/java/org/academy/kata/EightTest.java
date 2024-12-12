@@ -22,8 +22,10 @@ public class EightTest extends EightDataProvider {
         }
     }
 
-    @Test
-    public void testGetVolumeOfCuboid() {
+    @Test(dataProvider = "data-Cuboid")
+    public void testGetVolumeOfCuboid(IEight eight, double length, double width, double height, double expectedVolume) {
+        double actual = eight.getVolumeOfCuboid(length, width, height);
+        Assert.assertEquals(actual, expectedVolume, 0.01);
     }
 
     @Test(dataProvider = "data-MpgToKPM")
