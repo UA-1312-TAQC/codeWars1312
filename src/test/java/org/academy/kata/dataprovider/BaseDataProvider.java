@@ -2,6 +2,7 @@ package org.academy.kata.dataprovider;
 
 import org.academy.kata.IEight;
 import org.academy.kata.IFive;
+import org.academy.kata.ISeven;
 import org.academy.kata.ISix;
 
 import java.lang.reflect.Array;
@@ -57,6 +58,23 @@ public class BaseDataProvider {
             new org.academy.kata.implementation.daniilrusanov.Five(),
             new org.academy.kata.implementation.niker01.Five(),
             new org.academy.kata.implementation.BasilJaworski.Five()
+    );
+
+    protected static final List<ISeven> SEVENTH = List.of(
+            new org.academy.kata.implementation.TanyaB777.Seven(),
+            new org.academy.kata.implementation.Dorrothee.Seven(),
+            new org.academy.kata.implementation.NastiaDamian.Seven(),
+            new org.academy.kata.implementation.AnastasiiaSun.Seven(),
+            new org.academy.kata.implementation.Vovanchek.Seven(),
+            new org.academy.kata.implementation.kiyanovskaa.Seven(),
+            new org.academy.kata.implementation.NatalyKokhaniuk.Seven(),
+            new org.academy.kata.implementation.MisterV03.Seven(),
+            new org.academy.kata.implementation.ValKuch.Seven(),
+            new org.academy.kata.implementation.nestea4.Seven(),
+            new org.academy.kata.implementation.ivanromanuik2014.Seven(),
+            new org.academy.kata.implementation.daniilrusanov.Seven(),
+            new org.academy.kata.implementation.niker01.Seven(),
+            new org.academy.kata.implementation.BasilJaworski.Seven()
     );
 
     protected static Iterator<Object[]> combineData(List<Object[]> input_data, List<?> impls) {
