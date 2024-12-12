@@ -129,7 +129,7 @@ public class MainMenu {
                     isRun = false;
                     break;
                 case 17:
-//                    taskRunner.runStockSummary();
+                    taskRunner.runStockSummary();
                     isRun = false;
                     break;
                 case 18:

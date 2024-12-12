@@ -198,7 +198,7 @@ public class TaskRunner {
         System.out.println("The result is rounded to 2 decimal places: " + result);
     }
 
-    public void runStockSummary(){
+    public void runStockSummary() {
         System.out.println("Enter the stock list separated by commas (e.g. ABAR 200, CDXE 500):");
         String[] lstOfArt = reader.readStringArrByComma();
 
@@ -208,6 +208,7 @@ public class TaskRunner {
         String result = author.getSix().stockSummary(lstOfArt, lstOf1stLetter);
 
         System.out.println("Stock summary: " + result);
+    }
 
     public void runF() {
         System.out.print("Enter the double number: ");
