@@ -99,7 +99,7 @@ public class TaskRunner {
         }
     }
 
-    public void nba() {
+    public void runNbaCup() {
         System.out.println("Input result sheet:");
         String resultSheet = reader.readString();
 
@@ -110,7 +110,7 @@ public class TaskRunner {
         System.out.println(result);
     }
 
-    public void runDivisibleBy(){
+    public void runDivisibleBy() {
         System.out.println("Enter integer numbers, separated by spaces:");
         int[] numbers = reader.readIntArr();
 
@@ -192,10 +192,17 @@ public class TaskRunner {
         }
     }
 
-    public void runTwoDecimalPlaces(){
+    public void runTwoDecimalPlaces() {
         System.out.print("Enter the double number: ");
         double value = reader.readDouble();
         double result = author.getEight().TwoDecimalPlaces(value);
         System.out.println("The result is rounded to 2 decimal places: " + result);
+    }
+
+    public void runF() {
+        System.out.print("Enter the double number: ");
+        double value = reader.readDouble();
+        double result = author.getSix().f(value);
+        System.out.println("The result: " + result);
     }
 }

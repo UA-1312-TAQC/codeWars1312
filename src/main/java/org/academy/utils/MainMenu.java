@@ -129,7 +129,7 @@ public class MainMenu {
                     isRun = false;
                     break;
                 case 17:
-                    taskRunner.runStockSummary();
+//                    taskRunner.runStockSummary();
                     isRun = false;
                     break;
                 case 18:
@@ -137,15 +137,15 @@ public class MainMenu {
                     isRun = false;
                     break;
                 case 19:
-                    taskRunner.runZeros();
+//                    taskRunner.runZeros();
                     isRun = false;
                     break;
                 case 20:
-                    taskRunner.runPerimeter();
+//                    taskRunner.runPerimeter();
                     isRun = false;
                     break;
                 case 21:
-                    taskRunner.runSolve();
+//                    taskRunner.runSolve();
                     isRun = false;
                     break;
                 case 22:
@@ -155,7 +155,6 @@ public class MainMenu {
                 default:
                     System.out.println("incorrect task id");
             }
-
         }
     }
 
@@ -182,7 +181,6 @@ public class MainMenu {
                     runTask();
                     break;
             }
-
         }
     }
 }
