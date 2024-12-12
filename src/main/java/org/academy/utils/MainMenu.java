@@ -141,7 +141,7 @@ public class MainMenu {
                     isRun = false;
                     break;
                 case 20:
-//                    taskRunner.runPerimeter();
+                    taskRunner.runPerimeter();
                     isRun = false;
                     break;
                 case 21:
