@@ -64,16 +64,92 @@ public class MainMenu {
             System.out.println("enter task id: ");
             int id = reader.readInt();
             switch (id){
+                case 1:
+                    taskRunner.runLiters();
+                    isRun = false;
+                    break;
+                case 2:
+                    taskRunner.runGetVolumeOfCuboid();
+                    isRun = false;
+                    break;
+                case 3:
+                    taskRunner.runMpgToKPM();
+                    isRun = false;
+                    break;
+                case 4:
+                    taskRunner.runSquareOrSquareRoot();
+                    isRun = false;
+                    break;
+                case 5:
+                    taskRunner.runCountPositivesSumNegatives();
+                    isRun = false;
+                    break;
+                case 6:
+                    taskRunner.runStringToNumber();
+                    isRun = false;
+                    break;
+                case 7:
+                    taskRunner.runAmIWilson();
+                    isRun = false;
+                    break;
                 case 8:
-                    taskRunner.runDivisibleBy();
+                    taskRunner.runTwoDecimalPlaces();
                     isRun = false;
                     break;
                 case 9:
-                    taskRunner.runAmIWilson();
+                    taskRunner.runDivisibleBy();
                     isRun = false;
                     break;
                 case 10:
                     taskRunner.runNewAvg();
+                    isRun = false;
+                    break;
+                case 11:
+                    taskRunner.runSeriesSum();
+                    isRun = false;
+                    break;
+                case 12:
+                    taskRunner.runFindNb();
+                    isRun = false;
+                    break;
+                case 13:
+                    taskRunner.runBalance();
+                    isRun = false;
+                    break;
+                case 14:
+                    taskRunner.runF();
+                    isRun = false;
+                    break;
+                case 15:
+                    taskRunner.runRainfall();
+                    isRun = false;
+                    break;
+                case 16:
+                    taskRunner.runNbaCup();
+                    isRun = false;
+                    break;
+                case 17:
+                    taskRunner.runStockSummary();
+                    isRun = false;
+                    break;
+                case 18:
+                    taskRunner.runGap();
+                    isRun = false;
+                    break;
+                case 19:
+                    taskRunner.runZeros();
+                    isRun = false;
+                    break;
+                case 20:
+                    taskRunner.runPerimeter();
+                    isRun = false;
+                    break;
+                case 21:
+                    taskRunner.runSolve();
+                    isRun = false;
+                    break;
+                case 22:
+                    taskRunner.runSmallest();
                     isRun = false;
                     break;
                 default:
