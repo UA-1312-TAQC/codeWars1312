@@ -79,7 +79,6 @@ public class TaskRunner {
     public void runSmallest() {
         System.out.print("Plese enter the long number: ");
         long num = reader.readLong();
-        String numStr = Long.toString(num);
         long[] result = author.getFive().smallest(num);
         System.out.println("The smallest number created is: " + result[0]);
         System.out.println("We takes the num with index: " + result[1]);
