@@ -1,5 +1,7 @@
 package org.academy.utils;
 
+import java.util.Arrays;
+
 public class TaskRunner {
     Author author;
     ConsoleReader reader;
@@ -35,10 +37,10 @@ public class TaskRunner {
     }
 
     public void runAmIWilson() {
-        System.out.println("input prime number");
-        int number = (int) reader.readLong();
+        System.out.println("Input prime number:");
+        long number = reader.readLong();
         boolean result = author.getEight().am_i_wilson(number);
-        System.out.println("number " + number + (result ? " is wilson prime" : " is not wilson prime"));
+        System.out.println("Number " + number + (result ? " is wilson prime" : " is not wilson prime"));
     }
 
     public void runRainfall() {
@@ -85,4 +87,67 @@ public class TaskRunner {
         System.out.println("And put it to the index: " + result[2]);
     }
 
+    public void runCountPositivesSumNegatives() {
+        System.out.println("input array of integers");
+        int[] numbers = reader.readIntArr();
+        int[] result = author.getEight().countPositivesSumNegatives(numbers);
+        if (result.length == 0) {
+            System.out.println("Result: empty array");
+        } else {
+            System.out.println("Count of positives: " + result[0]);
+            System.out.println("Sum of negatives: " + result[1]);
+        }
+    }
+
+    public void nba() {
+        System.out.println("Input result sheet:");
+        String resultSheet = reader.readString();
+
+        System.out.println("Input team name:");
+        String teamName = reader.readString();
+
+        String result = author.getSix().nbaCup(resultSheet, teamName);
+        System.out.println(result);
+    }
+
+    public void runDivisibleBy(){
+        System.out.println("Enter integer numbers, separated by spaces:");
+        int[] numbers = reader.readIntArr();
+
+        System.out.println("Enter the divider:");
+        int divider = reader.readInt();
+
+        int[] result = author.getEight().divisibleBy(numbers, divider);
+
+        System.out.println("Numbers divisible by " + divider + ": " + Arrays.toString(result));
+    }
+
+    public void runNewAvg() {
+        System.out.println("Enter the list of donations separated by spaces:");
+        double[] donations = reader.readDoubleArr();
+
+        System.out.println("Enter the target average:");
+        double targetAvg = reader.readDouble();
+
+        long result = author.getSeven().newAvg(donations, targetAvg);
+
+        System.out.println("The next donation should be: " + result);
+    }
+    public void runSeriesSum() {
+        System.out.print("Enter the integer number: ");
+        int num = reader.readInt();
+        String result = author.getSeven().seriesSum(num);
+        System.out.println("Result: " + result);
+    }
+
+    public void runFindNb() {
+        System.out.println("Input the total volume of the building as a long number:");
+        long volume = reader.readLong();
+        long result = author.getSix().findNb(volume);
+        if (result == -1) {
+            System.out.println("No solution exists for volume: " + volume);
+        } else {
+            System.out.println("For volume " + volume + ", you need " + result + " cubes");
+        }
+    }
 }
