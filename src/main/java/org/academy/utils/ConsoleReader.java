@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
+import java.io.InputStream;
 
 public class ConsoleReader {
 
@@ -11,6 +12,10 @@ public class ConsoleReader {
 
     public ConsoleReader() {
         this.reader = new BufferedReader(new InputStreamReader(System.in));
+    }
+
+    public ConsoleReader(InputStream inputStream) {
+        this.reader = new BufferedReader(new InputStreamReader(inputStream));
     }
 
     public int readInt() {
@@ -79,7 +84,13 @@ public class ConsoleReader {
     public int[] readIntArr() {
         while (true) {
             try {
-                String[] in = reader.readLine().trim().split("\\s+");
+                String line = reader.readLine();
+                if (line == null || line.trim().isEmpty()) {
+                    System.out.println("Input cannot be null or empty.");
+                    continue;
+                }
+
+                String[] in = line.trim().split("\\s+");
                 int[] arr = new int[in.length];
                 for (int i = 0; i < in.length; i++) {
                     arr[i] = Integer.parseInt(in[i]);
@@ -87,7 +98,7 @@ public class ConsoleReader {
 
                 return arr;
             } catch (IOException | NumberFormatException e) {
-                System.out.println("Input should be a long.");
+                System.out.println("Input should be a int.");
             }
         }
     }
