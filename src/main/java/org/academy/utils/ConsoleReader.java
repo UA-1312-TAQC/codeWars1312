@@ -40,7 +40,7 @@ public class ConsoleReader {
             } catch (IOException e) {
                 System.out.println("Input should be a string in one line.");
             }
-            
+
         }
     }
 
@@ -135,6 +135,23 @@ public class ConsoleReader {
                 System.out.println("Input should be doubles separated by spaces.");
             }
         }
+    }
+
+    public String readMultipleLines(String endMarker) {
+        StringBuilder input = new StringBuilder();
+        System.out.println("Enter your input. Type '" + endMarker + "' to finish:");
+        while (true) {
+            try {
+                String line = reader.readLine();
+                if (endMarker.equalsIgnoreCase(line.trim())) {
+                    break;
+                }
+                input.append(line).append("\n");
+            } catch (IOException e) {
+                System.out.println("Input error. Please try again.");
+            }
+        }
+        return input.toString().trim();
     }
 
 }

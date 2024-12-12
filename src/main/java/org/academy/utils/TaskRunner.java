@@ -65,8 +65,6 @@ public class TaskRunner {
         System.out.println("Kilometers per liter (kpl): " + result);
     }
 
-    ;
-
     public void runSquareOrSquareRoot() {
         System.out.println("Enter integers separated by spaces:");
         int[] array = reader.readIntArr();
@@ -99,7 +97,7 @@ public class TaskRunner {
         }
     }
 
-    public void nba() {
+    public void runNbaCup() {
         System.out.println("Input result sheet:");
         String resultSheet = reader.readString();
 
@@ -110,7 +108,7 @@ public class TaskRunner {
         System.out.println(result);
     }
 
-    public void runDivisibleBy(){
+    public void runDivisibleBy() {
         System.out.println("Enter integer numbers, separated by spaces:");
         int[] numbers = reader.readIntArr();
 
@@ -133,6 +131,7 @@ public class TaskRunner {
 
         System.out.println("The next donation should be: " + result);
     }
+
     public void runSeriesSum() {
         System.out.print("Enter the integer number: ");
         int num = reader.readInt();
@@ -170,8 +169,30 @@ public class TaskRunner {
         }
     }
 
-    public void runTwoDecimalPlaces(){
-        System.out.println("Enter the double number: ");
+    public void runBalance() {
+        ConsoleReader consoleReader = new ConsoleReader();
+
+        System.out.println("Enter book info line by line in the following format:");
+        System.out.println("Example:");
+        System.out.println("1000.00");
+        System.out.println("125 Market 125.45");
+        System.out.println("126 Hardware 34.95");
+        System.out.println("127 Video 7.45");
+        System.out.println("Type 'DONE' when finished:");
+
+        String bookInfo = consoleReader.readMultipleLines("DONE");
+
+        try {
+            String result = author.getSix().balance(bookInfo);
+            System.out.println(result);
+        } catch (Exception e) {
+            System.out.println("Error processing input: " + e.getMessage());
+        }
+    }
+
+    public void runTwoDecimalPlaces() {
+        System.out.print("Enter the double number: ");
+
         double value = reader.readDouble();
         double result = author.getEight().TwoDecimalPlaces(value);
         System.out.println("The result is rounded to 2 decimal places: " + result);
@@ -187,5 +208,11 @@ public class TaskRunner {
         String result = author.getSix().stockSummary(lstOfArt, lstOf1stLetter);
 
         System.out.println("Stock summary: " + result);
+
+    public void runF() {
+        System.out.print("Enter the double number: ");
+        double value = reader.readDouble();
+        double result = author.getSix().f(value);
+        System.out.println("The result: " + result);
     }
 }
