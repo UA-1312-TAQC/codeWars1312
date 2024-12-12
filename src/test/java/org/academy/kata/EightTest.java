@@ -20,6 +20,7 @@ public class EightTest extends EightDataProvider {
         } catch (IllegalArgumentException ex) {
             Assert.assertEquals(ex.getMessage(), String.format("Time must be between 0 and %.2f.", Integer.MAX_VALUE * 2.0));
         }
+    }
 
     @Test
     public void testGetVolumeOfCuboid() {
