@@ -1,9 +1,9 @@
 package org.academy.utils;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Arrays;
 
 import static org.testng.Assert.*;
@@ -57,6 +57,25 @@ public class ConsoleReaderTest {
 
     @Test
     public void testReadStringArr() {
+        String[] expectedStringArr = new String[]{"Automation", "Testing", "in", "Java"};
+
+        // --Valid data--
+        String validInput = "Automation, Testing, in, Java\n";
+        InputStream inputStream = new ByteArrayInputStream(validInput.getBytes());
+        ConsoleReader consoleReader = new ConsoleReader(inputStream);
+        String[] resultValidInput = consoleReader.readStringArr();
+        assertTrue(Arrays.equals(expectedStringArr, resultValidInput));
+
+        // --Empty input--
+        String emptyInput = "\n"; // Single empty line only
+        inputStream = new ByteArrayInputStream(emptyInput.getBytes());
+        consoleReader = new ConsoleReader(inputStream);
+        String[] resultEmptyInput = consoleReader.readStringArr();
+
+        //Validate that the result contains a single empty string
+        assertEquals(resultEmptyInput.length, 1); //Expect one element
+        assertEquals(resultEmptyInput[0], ""); //Validate that the element is an empty string
+
     }
 
     @Test
