@@ -36,6 +36,7 @@ public class ConsoleReaderTest {
 
     @Test
     public void testReadIntArr() {
+        //positive
         String simulatedInput = "10 20 30 40 50\n";
         InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
         ConsoleReader consoleReader = new ConsoleReader(inputStream);
@@ -43,6 +44,14 @@ public class ConsoleReaderTest {
         int[] actual = consoleReader.readIntArr();
         int[] expected = {10, 20, 30, 40, 50};
 
+        assertTrue(Arrays.equals(actual, expected));
+
+        //negative
+        simulatedInput = "\naa b c\n0.8 7.9\n10 20 30 40 50\n";
+        inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        consoleReader = new ConsoleReader(inputStream);
+
+        actual = consoleReader.readIntArr();
         assertTrue(Arrays.equals(actual, expected));
     }
 
