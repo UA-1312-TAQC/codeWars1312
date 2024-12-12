@@ -21,13 +21,25 @@ public class SixTest extends SixDataProvider {
     @Test(dataProvider = "data-Mean")
     public void testMean(ISix six, String town, String strng, double expected) {
         double actual = six.mean(town, strng);
-        Assert.assertEquals(actual, expected, 1e-2);
+
+        if (expected == -1) {
+            Assert.assertEquals(actual, expected);
+        } else {
+            Assert.assertEquals(actual, expected, 1e-2,
+                    "abs(actual - expected) must be <= 1e-2. Expected was " + expected + ", but got " + actual);
+        }
     }
 
     @Test(dataProvider = "data-Variance")
     public void testVariance(ISix six, String town, String strng, double expected) {
         double actual = six.variance(town, strng);
-        Assert.assertEquals(actual, expected, 1e-2);
+
+        if (expected == -1) {
+            Assert.assertEquals(actual, expected);
+        } else {
+            Assert.assertEquals(actual, expected, 1e-2,
+                    "abs(actual - expected) must be <= 1e-2. Expected was " + expected + ", but got " + actual);
+        }
     }
 
     @Test
