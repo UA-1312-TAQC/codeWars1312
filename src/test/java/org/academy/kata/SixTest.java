@@ -42,8 +42,10 @@ public class SixTest extends SixDataProvider {
         }
     }
 
-    @Test
-    public void testNbaCup() {
+    @Test(dataProvider = "data-NBA")
+    public void testNbaCup(ISix six, String resultSheet, String toFind, String expectedSummary) {
+        String actual = six.nbaCup(resultSheet, toFind);
+        Assert.assertEquals(actual, expectedSummary);
     }
 
     @Test
