@@ -1,8 +1,9 @@
 package org.academy.kata.implementation.NastiaDamian;
 
+import org.academy.kata.Base;
 import org.academy.kata.ISeven;
 
-public class Seven implements ISeven {
+public class Seven extends Base implements ISeven {
     @Override
     public long newAvg(double[] arr, double navg) {
         double currentSum = 0;
