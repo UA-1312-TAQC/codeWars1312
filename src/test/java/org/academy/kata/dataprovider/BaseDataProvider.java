@@ -1,8 +1,7 @@
 package org.academy.kata.dataprovider;
 
-
-
 import org.academy.kata.IEight;
+import org.academy.kata.ISix;
 
 import java.lang.reflect.Array;
 import java.util.*;
@@ -24,6 +23,23 @@ public class BaseDataProvider {
             new org.academy.kata.implementation.daniilrusanov.Eight(),
             new org.academy.kata.implementation.niker01.Eight(),
             new org.academy.kata.implementation.BasilJaworski.Eight()
+    );
+
+    protected static final List<ISix> SIX = List.of(
+            new org.academy.kata.implementation.TanyaB777.Six(),
+            new org.academy.kata.implementation.Dorrothee.Six(),
+            new org.academy.kata.implementation.NastiaDamian.Six(),
+            new org.academy.kata.implementation.AnastasiiaSun.Six(),
+            new org.academy.kata.implementation.Vovanchek.Six(),
+            new org.academy.kata.implementation.kiyanovskaa.Six(),
+            new org.academy.kata.implementation.NatalyKokhaniuk.Six(),
+            new org.academy.kata.implementation.MisterV03.Six(),
+            new org.academy.kata.implementation.ValKuch.Six(),
+            new org.academy.kata.implementation.nestea4.Six(),
+            new org.academy.kata.implementation.ivanromanuik2014.Six(),
+            new org.academy.kata.implementation.daniilrusanov.Six(),
+            new org.academy.kata.implementation.niker01.Six(),
+            new org.academy.kata.implementation.BasilJaworski.Six()
     );
 
     protected static Iterator<Object[]> combineData(List<Object[]> input_data, List<?> impls) {
@@ -64,5 +80,4 @@ public class BaseDataProvider {
         }
         return data.iterator();
     }
-
 }
