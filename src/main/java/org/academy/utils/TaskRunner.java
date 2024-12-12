@@ -150,6 +150,7 @@ public class TaskRunner {
             System.out.println("For volume " + volume + ", you need " + result + " cubes");
         }
     }
+
     public void runGap() {
         System.out.println("Enter gap size (g): ");
         int g = reader.readInt();
@@ -167,5 +168,12 @@ public class TaskRunner {
         } else {
             System.out.println("No such gap found in the given range.");
         }
+    }
+
+    public void runTwoDecimalPlaces(){
+        System.out.print("Enter the double number: ");
+        double value = reader.readDouble();
+        double result = author.getEight().TwoDecimalPlaces(value);
+        System.out.println("The result is rounded to 2 decimal places: " + result);
     }
 }
