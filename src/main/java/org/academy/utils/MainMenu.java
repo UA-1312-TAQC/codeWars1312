@@ -11,11 +11,13 @@ public class MainMenu {
     }
 
     public void printActions() {
-        System.out.println("1. show Authors");
+        System.out.println(">>>   menu   <<<");
+        System.out.println("1. show Authors (" + (author != null?author.getName():"not selected") + ")");
         System.out.println("2. set Author");
         System.out.println("3. show tasks");
         System.out.println("4. run task");
         System.out.println("0. exit");
+        System.out.println(">>>>>>>><<<<<<<<");
     }
 
     public void printTasks() {
@@ -178,7 +180,11 @@ public class MainMenu {
                     printTasks();
                     break;
                 case 4:
-                    runTask();
+                    if(author != null) {
+                        runTask();
+                    } else {
+                        System.out.println("author must by selected!");
+                    }
                     break;
             }
         }
