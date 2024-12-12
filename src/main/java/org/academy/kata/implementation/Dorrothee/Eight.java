@@ -3,6 +3,10 @@ package org.academy.kata.implementation.Dorrothee;
 
 import org.academy.kata.IEight;
 
+
+
+import java.util.ArrayList;
+
 public class Eight implements IEight {
     @Override
     public int liters(double time) {
@@ -57,7 +61,21 @@ public class Eight implements IEight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        //As we do not know the size of an array
+        ArrayList<Integer> resultList = new ArrayList<>();
+        for (int el: numbers) {
+            if (el % divider == 0) {
+                resultList.add(el);
+            }
+        }
+
+        //Result array
+        int[] result = new int[resultList.size()];
+        for (int i = 0; i < resultList.size(); i++) {
+            result[i] = resultList.get(i);
+        }
+
+        return result;
     }
 
     @Override
