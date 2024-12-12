@@ -48,7 +48,7 @@ public class MainMenu {
         while (true) {
             System.out.println("enter authors id: ");
             int id = reader.readInt();
-            if (id > 0 && id < Author.values().length) {
+            if (id > 0 && id <= Author.values().length) {
                 author = Author.getAuthorById(id);
                 taskRunner = new TaskRunner(author);
                 break;
