@@ -52,6 +52,15 @@ public class ConsoleReaderTest {
 
     @Test
     public void testReadStringArrByComma() {
+        String simulatedInput = "one,two,three";
+
+        InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        ConsoleReader consoleReader = new ConsoleReader(inputStream);
+
+        String[] actual = consoleReader.readStringArrByComma();
+        String[] expected = {"one", "two", "three"};
+
+        assertEquals(actual, expected);
     }
 
     @Test
