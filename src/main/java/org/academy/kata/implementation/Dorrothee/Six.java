@@ -8,7 +8,19 @@ import java.util.Map;
 public class Six implements ISix {
     @Override
     public long findNb(long m) {
-        return 0;
+        long volume = 0;
+        long n = 0;
+
+        while (volume < m) {
+            n++;
+            volume += (long) Math.pow(n, 3); // (n−1)^3
+        }
+
+        if (volume == m) {
+            return n;
+        } else {
+            return -1;
+        }
     }
 
     @Override
