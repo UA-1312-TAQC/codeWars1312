@@ -35,6 +35,8 @@ public class SixDataProvider extends BaseDataProvider {
         inputs.add(new Object[]{"London", RAINFALL_DATA, 51.199999999999996});
         inputs.add(new Object[]{"Beijing", RAINFALL_DATA, 52.416666666666664});
 
+        inputs.add(new Object[]{"None", RAINFALL_DATA, -1});
+
         return combineData(inputs, SIX);
     }
 
@@ -44,6 +46,8 @@ public class SixDataProvider extends BaseDataProvider {
 
         inputs.add(new Object[]{"London", RAINFALL_DATA, 57.42833333333374});
         inputs.add(new Object[]{"Beijing", RAINFALL_DATA, 4808.37138888889});
+
+        inputs.add(new Object[]{"None", RAINFALL_DATA, -1});
 
         return combineData(inputs, SIX);
     }
