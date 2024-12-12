@@ -20,14 +20,15 @@ public class EightTest extends EightDataProvider {
         } catch (IllegalArgumentException ex) {
             Assert.assertEquals(ex.getMessage(), String.format("Time must be between 0 and %.2f.", Integer.MAX_VALUE * 2.0));
         }
-    }
 
     @Test
     public void testGetVolumeOfCuboid() {
     }
 
-    @Test
-    public void testMpgToKPM() {
+    @Test(dataProvider = "data-MpgToKPM")
+    public void testMpgToKPM(IEight eight, float mpg, float expected) {
+        float actual = eight.mpgToKPM(mpg);
+        Assert.assertEquals(actual, expected, 0.001f);
     }
 
     @Test

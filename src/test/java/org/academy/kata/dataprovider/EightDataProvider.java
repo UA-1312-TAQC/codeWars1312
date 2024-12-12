@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class EightDataProvider extends BaseDataProvider{
+public class EightDataProvider extends BaseDataProvider {
 
     @DataProvider(name = "data-Liters")
     public static Iterator<Object[]> dpLiters() {
@@ -31,6 +31,22 @@ public class EightDataProvider extends BaseDataProvider{
         inputs.add(new Object[]{-77.8, -39});
         inputs.add(new Object[]{Integer.MAX_VALUE * 2.0 + 1, 0});
 
+        return combineData(inputs, EIGHTS);
+    }
+
+    @DataProvider(name = "data-MpgToKPM")
+    public static Iterator<Object[]> dpMpgToKPM() {
+        final List<Object[]> inputs = new ArrayList<>();
+        inputs.add(new Object[]{12.0f, 4.25f});
+        inputs.add(new Object[]{10.0f, 3.54f});
+        inputs.add(new Object[]{20.0f, 7.08f});
+        inputs.add(new Object[]{30.0f, 10.62f});
+        inputs.add(new Object[]{0.0f, 0.0f});
+        inputs.add(new Object[]{-10.0f, -3.54f});
+        inputs.add(new Object[]{5.0f, 1.77f});
+        inputs.add(new Object[]{1000.0f, 354.83f});
+        inputs.add(new Object[]{0.1f, 0.04f});
+        inputs.add(new Object[]{15.5f, 5.46f});
         return combineData(inputs, EIGHTS);
     }
 }
