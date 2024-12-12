@@ -1,6 +1,7 @@
 package org.academy.kata.dataprovider;
 
 import org.academy.kata.IEight;
+import org.academy.kata.IFive;
 import org.academy.kata.ISix;
 
 import java.lang.reflect.Array;
@@ -40,6 +41,22 @@ public class BaseDataProvider {
             new org.academy.kata.implementation.daniilrusanov.Six(),
             new org.academy.kata.implementation.niker01.Six(),
             new org.academy.kata.implementation.BasilJaworski.Six()
+    );
+    protected static final List<IFive> FIFTH = List.of(
+            new org.academy.kata.implementation.TanyaB777.Five(),
+            new org.academy.kata.implementation.Dorrothee.Five(),
+            new org.academy.kata.implementation.NastiaDamian.Five(),
+            new org.academy.kata.implementation.AnastasiiaSun.Five(),
+            new org.academy.kata.implementation.Vovanchek.Five(),
+            new org.academy.kata.implementation.kiyanovskaa.Five(),
+            new org.academy.kata.implementation.NatalyKokhaniuk.Five(),
+            new org.academy.kata.implementation.MisterV03.Five(),
+            new org.academy.kata.implementation.ValKuch.Five(),
+            new org.academy.kata.implementation.nestea4.Five(),
+            new org.academy.kata.implementation.ivanromanuik2014.Five(),
+            new org.academy.kata.implementation.daniilrusanov.Five(),
+            new org.academy.kata.implementation.niker01.Five(),
+            new org.academy.kata.implementation.BasilJaworski.Five()
     );
 
     protected static Iterator<Object[]> combineData(List<Object[]> input_data, List<?> impls) {
