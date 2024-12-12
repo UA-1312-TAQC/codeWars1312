@@ -83,7 +83,7 @@ public class TaskRunner {
         String numStr = Long.toString(num);
         long[] result = author.getFive().smallest(num);
         System.out.println("The smallest number created is: " + result[0]);
-        System.out.println("We takes the: " + numStr.charAt((int)result[0]));
+        System.out.println("We takes the num with index: " + result[1]);
         System.out.println("And put it to the index: " + result[2]);
     }
 
