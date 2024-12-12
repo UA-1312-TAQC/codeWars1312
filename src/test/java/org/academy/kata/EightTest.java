@@ -14,6 +14,7 @@ public class EightTest extends EightDataProvider {
         int actual = eight.liters(in);
         Assert.assertEquals(actual, expected);
     }
+
     @Test
     public void testLiters2() {
         IEight eight = new Eight();
@@ -26,8 +27,10 @@ public class EightTest extends EightDataProvider {
     public void testGetVolumeOfCuboid() {
     }
 
-    @Test
-    public void testMpgToKPM() {
+    @Test(dataProvider = "data-MpgToKPM")
+    public void testMpgToKPM(IEight eight, float mpg, float expected) {
+        float actual = eight.mpgToKPM(mpg);
+        Assert.assertEquals(actual, expected, 0.001f);
     }
 
     @Test

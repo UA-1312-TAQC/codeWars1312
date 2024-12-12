@@ -1,9 +1,10 @@
 package org.academy.kata.implementation.NastiaDamian;
 
 
+import org.academy.kata.Base;
 import org.academy.kata.IEight;
 
-public class Eight implements IEight {
+public class Eight extends Base implements IEight {
     @Override
     public int liters(double time) {
         return (int) (time * 0.5);
