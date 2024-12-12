@@ -1,25 +1,25 @@
 package org.academy.kata;
 
 import org.academy.kata.dataprovider.EightDataProvider;
-import org.academy.kata.implementation.nestea4.Eight;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class EightTest extends EightDataProvider {
-
 
     @Test(dataProvider = "data-Liters")
     public void testLiters(IEight eight, double in, int expected) {
         int actual = eight.liters(in);
         Assert.assertEquals(actual, expected);
     }
-    @Test
-    public void testLiters2() {
-        IEight eight = new Eight();
-        int actual = eight.liters(55);
-        int expected = 27;
-        Assert.assertEquals(actual, expected);
+
+    @Test(dataProvider = "data-Liters_neg")
+    public void testLiters_neg(IEight eight, double in, int expected) {
+        try {
+            int actual = eight.liters(in);
+            Assert.assertTrue(actual == expected || actual == 0 || actual == -1);
+        } catch (IllegalArgumentException ex) {
+            Assert.assertEquals(ex.getMessage(), String.format("Time must be between 0 and %.2f.", Integer.MAX_VALUE * 2.0));
+        }
     }
 
     @Test
