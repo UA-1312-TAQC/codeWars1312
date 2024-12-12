@@ -1,5 +1,6 @@
 package org.academy.utils;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 public class TaskRunner {
@@ -222,5 +223,12 @@ public class TaskRunner {
         int number = reader.readInt();
         int result = author.getFive().zeros(number);
         System.out.println("The count of trailing zeros in a factorial of a given number: " + result);
+    }
+
+    public void runPerimeter(){
+        System.out.print("Enter the BigInteger number: ");
+        BigInteger number = reader.readBigInteger();
+        BigInteger result = author.getFive().perimeter(number);
+        System.out.println("The sum of the perimeters of all the squares in a rectangle: " + result);
     }
 }
