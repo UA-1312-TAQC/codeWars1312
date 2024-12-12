@@ -27,38 +27,55 @@ public class Six implements ISix {
 
     @Override
     public String balance(String book) {
-        book = book.replaceAll("[^\\w\\. \\n]", "");
+        book = book.replaceAll("[^\\w\\. \\n]", "").trim();
 
-        String[] lines = book.split("\n");
+        String[] lines = book.split("\\n");
 
-        double originalBalance = Double.parseDouble(lines[0]);
+        if (lines.length == 0) {
+            throw new IllegalArgumentException("Input is empty or improperly formatted.");
+        }
+
+        double originalBalance;
+        try {
+            originalBalance = Double.parseDouble(lines[0]);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid original balance format: " + lines[0]);
+        }
+
         double currentBalance = originalBalance;
-
         double totalExpense = 0;
         int expenseCount = 0;
 
         StringBuilder result = new StringBuilder();
-        result.append(String.format(Locale.US, "Original Balance: %.2f\\r\\n", originalBalance));
+        result.append(String.format(Locale.US, "Original Balance: %.2f%s", originalBalance, System.lineSeparator()));
 
         for (int i = 1; i < lines.length; i++) {
             if (lines[i].trim().isEmpty()) {
                 continue;
             }
 
-            String[] parts = lines[i].trim().split("\\s+", 3);
-            String checkNumber = parts[0];
-            String category = parts[1];
-            double amount = Double.parseDouble(parts[2]);
+            try {
+                String[] parts = lines[i].trim().split("\\s+", 3);
+                if (parts.length < 3) {
+                    throw new IllegalArgumentException("Invalid line format: " + lines[i]);
+                }
 
-            currentBalance -= amount;
-            totalExpense += amount;
-            expenseCount++;
+                String checkNumber = parts[0];
+                String category = parts[1];
+                double amount = Double.parseDouble(parts[2]);
 
-            result.append(String.format(Locale.US, "%s %s %.2f Balance %.2f\\r\\n",
-                    checkNumber, category, amount, currentBalance));
+                currentBalance -= amount;
+                totalExpense += amount;
+                expenseCount++;
+
+                result.append(String.format(Locale.US, "%s %s %.2f Balance %.2f%s",
+                        checkNumber, category, amount, currentBalance, System.lineSeparator()));
+            } catch (Exception e) {
+                result.append("Error processing line: ").append(lines[i]).append(System.lineSeparator());
+            }
         }
 
-        result.append(String.format(Locale.US, "Total expense  %.2f\\r\\n", totalExpense));
+        result.append(String.format(Locale.US, "Total expense  %.2f%s", totalExpense, System.lineSeparator()));
         result.append(String.format(Locale.US, "Average expense  %.2f", totalExpense / expenseCount));
 
         return result.toString();

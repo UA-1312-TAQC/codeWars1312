@@ -40,7 +40,7 @@ public class ConsoleReader {
             } catch (IOException e) {
                 System.out.println("Input should be a string in one line.");
             }
-            
+
         }
     }
 
@@ -107,6 +107,21 @@ public class ConsoleReader {
         }
     }
 
+    public String[] readStringArrByComma() {
+        while (true) {
+            try {
+                String[] arr = reader.readLine().trim().split(",");
+                if (arr.length == 0) {
+                    System.out.println("The input cannot be empty. Please try again.");
+                    continue;
+                }
+                return arr;
+            } catch (IOException e) {
+                System.out.println("The input string value should be separated by a comma.");
+            }
+        }
+    }
+
     public double[] readDoubleArr() {
         while (true) {
             try {
@@ -120,6 +135,23 @@ public class ConsoleReader {
                 System.out.println("Input should be doubles separated by spaces.");
             }
         }
+    }
+
+    public String readMultipleLines(String endMarker) {
+        StringBuilder input = new StringBuilder();
+        System.out.println("Enter your input. Type '" + endMarker + "' to finish:");
+        while (true) {
+            try {
+                String line = reader.readLine();
+                if (endMarker.equalsIgnoreCase(line.trim())) {
+                    break;
+                }
+                input.append(line).append("\n");
+            } catch (IOException e) {
+                System.out.println("Input error. Please try again.");
+            }
+        }
+        return input.toString().trim();
     }
 
 }
