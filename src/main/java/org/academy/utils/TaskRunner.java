@@ -214,6 +214,13 @@ public class TaskRunner {
         System.out.print("Enter the double number: ");
         double value = reader.readDouble();
         double result = author.getSix().f(value);
-        System.out.println("The result: " + result);
+        System.out.println("The result(approximation of f(x) in the neighborhood of 0): " + result);
+    }
+
+    public void runZeros(){
+        System.out.print("Enter the int number: ");
+        int number = reader.readInt();
+        int result = author.getFive().zeros(number);
+        System.out.println("The count of trailing zeros in a factorial of a given number: " + result);
     }
 }

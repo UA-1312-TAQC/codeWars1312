@@ -137,7 +137,7 @@ public class MainMenu {
                     isRun = false;
                     break;
                 case 19:
-//                    taskRunner.runZeros();
+                    taskRunner.runZeros();
                     isRun = false;
                     break;
                 case 20:
