@@ -111,4 +111,29 @@ public class SixDataProvider extends BaseDataProvider {
         return combineData(inputs, SIX);
     }
 
+    @DataProvider(name = "data-stockSummary")
+    public static Iterator<Object[]> dpStockSummary() {
+        final List<Object[]> inputs = new ArrayList<>();
+
+        inputs.add(new Object[]{new String[]{"ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"},
+                new String[]{"A", "B", "C", "D"},
+                "(A : 200) - (B : 1140) - (C : 500) - (D : 600)"});
+        inputs.add(new Object[]{new String[]{},
+                new String[]{"A", "B", "C"},
+                ""});
+        inputs.add(new Object[]{new String[]{"ABAR 100"},
+                new String[]{"Z"},
+                "(Z : 0)"});
+        inputs.add(new Object[]{new String[]{"XYZZ 300", "UVWX 400", "MNOP 150"},
+                new String[]{"A", "B", "C"},
+                "(A : 0) - (B : 0) - (C : 0)"});
+        inputs.add(new Object[]{new String[]{"ABAR 1000", "ABAR 2000", "BKWR 1500", "BTSQ 3000", "CDXE 500", "DRTY 600", "DRTY 900"},
+                new String[]{"A", "B", "C", "D"},
+                "(A : 3000) - (B : 4500) - (C : 500) - (D : 1500)"});
+        inputs.add(new Object[]{new String[]{"ABAR 200", "BKWR 150", "BTSQ 300", "CDXE 250", "DRTY 400"},
+                new String[]{"D", "C", "B", "A"},
+                "(D : 400) - (C : 250) - (B : 450) - (A : 200)"});
+
+        return combineData(inputs, SIX);
+    }
 }

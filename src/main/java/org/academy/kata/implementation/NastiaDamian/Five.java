@@ -1,10 +1,11 @@
 package org.academy.kata.implementation.NastiaDamian;
 
+import org.academy.kata.Base;
 import org.academy.kata.IFive;
 
 import java.math.BigInteger;
 
-public class Five implements IFive {
+public class Five extends Base implements IFive {
     @Override
     public long[] gap(int g, long m, long n) {
         long previousPrime = -1;

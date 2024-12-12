@@ -1,5 +1,6 @@
 package org.academy.kata.implementation.NastiaDamian;
 
+import org.academy.kata.Base;
 import org.academy.kata.ISix;
 
 import java.util.Arrays;
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Six implements ISix {
+public class Six extends Base implements ISix {
     @Override
     public long findNb(long m) {
         long totalVolume = 0;

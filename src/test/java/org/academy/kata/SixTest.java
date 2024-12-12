@@ -48,7 +48,9 @@ public class SixTest extends SixDataProvider {
         Assert.assertEquals(actual, expectedSummary);
     }
 
-    @Test
-    public void testStockSummary() {
+    @Test (dataProvider = "data-stockSummary")
+    public void testStockSummary(ISix six, String[] lstOfArt, String[] lstOf1stLetter, String expected) {
+        String actual = six.stockSummary(lstOfArt, lstOf1stLetter);
+        Assert.assertEquals(actual, expected);
     }
 }
