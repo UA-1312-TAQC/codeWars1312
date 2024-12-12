@@ -5,8 +5,11 @@ import org.academy.kata.IEight;
 
 public class Eight implements IEight {
     @Override
-    public int liters(double time) {
-        return 0;
+   public int liters(double time)  {
+        if(time<0) return -1;
+        int litres=(int) (time/2);
+        System.out.println("time = " + time + " ----> litres = " + litres);
+        return litres;
     }
 
     @Override
