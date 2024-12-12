@@ -231,4 +231,11 @@ public class TaskRunner {
         BigInteger result = author.getFive().perimeter(number);
         System.out.println("The sum of the perimeters of all the squares in a rectangle: " + result);
     }
+
+    public void runSolve() {
+        System.out.println("Enter a number:");
+        double m = reader.readDouble();
+        double result = author.getFive().solve(m);
+        System.out.println("Solution: " + result);
+    }
 }
