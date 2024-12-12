@@ -25,9 +25,9 @@ public class MainMenu {
         System.out.println("4. To square(root) or not to square(root)");
         System.out.println("5. Count of positives / sum of negatives");
         System.out.println("6. Convert a String to a Number");
-        System.out.println("7. Formatting decimal places");
-        System.out.println("8. Find numbers which are divisible by given number");
-        System.out.println("9. Wilson primes");
+        System.out.println("7. Wilson primes");
+        System.out.println("8. Formatting decimal places");
+        System.out.println("9. Find numbers which are divisible by given number");
         System.out.println("10. Looking for a benefactor");
         System.out.println("11. Sum of the first nth term of Series");
         System.out.println("12. Build a pile of Cubes");
