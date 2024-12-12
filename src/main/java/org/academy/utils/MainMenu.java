@@ -10,7 +10,7 @@ public class MainMenu {
         this.reader = new ConsoleReader();
     }
 
-    public void printActions(){
+    public void printActions() {
         System.out.println("1. show Authors");
         System.out.println("2. set Author");
         System.out.println("3. show tasks");
@@ -18,7 +18,7 @@ public class MainMenu {
         System.out.println("0. exit");
     }
 
-    public void printTasks(){
+    public void printTasks() {
         System.out.println("1. Keep Hydrated");
         System.out.println("2. Volume of a Cuboid");
         System.out.println("3. Miles per gallon to kilometers per liter");
@@ -43,7 +43,7 @@ public class MainMenu {
         System.out.println("22. Find the smallest");
     }
 
-    private void setAuthor(){
+    private void setAuthor() {
         Author.printAuthors();
         while (true) {
             System.out.println("enter authors id: ");
@@ -56,14 +56,14 @@ public class MainMenu {
         }
     }
 
-    private void runTask(){
+    private void runTask() {
 
         boolean isRun = true;
         while (isRun) {
             printTasks();
             System.out.println("enter task id: ");
             int id = reader.readInt();
-            switch (id){
+            switch (id) {
                 case 1:
                     taskRunner.runLiters();
                     isRun = false;
@@ -159,13 +159,13 @@ public class MainMenu {
         }
     }
 
-    public void run(){
+    public void run() {
         boolean isRun = true;
         while (isRun) {
             printActions();
             System.out.println("enter actions id: ");
             int id = reader.readInt();
-            switch (id){
+            switch (id) {
                 case 0:
                     isRun = false;
                     break;
@@ -185,8 +185,4 @@ public class MainMenu {
 
         }
     }
-
-
-
-
 }
