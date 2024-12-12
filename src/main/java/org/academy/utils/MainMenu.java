@@ -145,7 +145,7 @@ public class MainMenu {
                     isRun = false;
                     break;
                 case 21:
-//                    taskRunner.runSolve();
+                    taskRunner.runSolve();
                     isRun = false;
                     break;
                 case 22:
