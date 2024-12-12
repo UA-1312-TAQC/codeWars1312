@@ -71,47 +71,47 @@ public class EightDataProvider extends BaseDataProvider {
 
     @DataProvider(name = "data-SquareOrSquareRoot")
     public static Iterator<Object[]> dpSquareOrSquareRoot() {
-        List<Object[]> data = new ArrayList<>();
-        data.add(new Object[]{
+        List<Object[]> inputs = new ArrayList<>();
+        inputs.add(new Object[]{
                 new int[]{4, 3, 9, 7, 2, 1},
                 new int[]{2, 9, 3, 49, 4, 1}
         });
-        data.add(new Object[]{
+        inputs.add(new Object[]{
                 new int[]{16, 10, 25, 8},
                 new int[]{4, 100, 5, 64}
         });
-        data.add(new Object[]{
+        inputs.add(new Object[]{
                 new int[]{100, 101, 5, 5, 1, 1},
                 new int[]{10, 10201, 25, 25, 1, 1}
         });
-        data.add(new Object[]{
+        inputs.add(new Object[]{
                 new int[]{1, 2, 3, 4, 5, 6},
                 new int[]{1, 4, 9, 2, 25, 36}
         });
-        data.add(new Object[]{
+        inputs.add(new Object[]{
                 new int[]{9},
                 new int[]{3}
         });
-        data.add(new Object[]{
+        inputs.add(new Object[]{
                 new int[]{7},
                 new int[]{49}
         });
-        data.add(new Object[]{
+        inputs.add(new Object[]{
                 new int[]{-4, -3, -9, -7},
                 new int[]{16, 9, 81, 49}
         });
-        data.add(new Object[]{
+        inputs.add(new Object[]{
                 new int[]{-1, -1, 1},
                 new int[]{1, 1, 1}
         });
-        data.add(new Object[]{
+        inputs.add(new Object[]{
                 new int[]{},
                 new int[]{}
         });
-        data.add(new Object[]{
+        inputs.add(new Object[]{
                 new int[]{0, 0, 0, 0},
                 new int[]{0, 0, 0, 0}
         });
-        return combineData(data, EIGHTS);
+        return combineData(inputs, EIGHTS);
     }
 }
