@@ -16,7 +16,9 @@ public class Eight implements IEight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+       float res=Math.round((mpg * (1.609344f / 4.54609f)* 100.0f)) / 100.0f;
+        System.out.println(mpg +" miles per imperial gallon = " + res +" kilometers per liter.");
+        return res;
     }
 
     @Override
