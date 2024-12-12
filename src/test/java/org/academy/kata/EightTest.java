@@ -34,8 +34,10 @@ public class EightTest extends EightDataProvider {
         Assert.assertEquals(actual, expected, 0.001f);
     }
 
-    @Test
-    public void testSquareOrSquareRoot() {
+    @Test(dataProvider = "data-SquareOrSquareRoot")
+    public void testSquareOrSquareRoot(IEight eight, int[] inputArray, int[] expected) {
+        int[] actual = eight.squareOrSquareRoot(inputArray);
+        Assert.assertEquals(actual, expected);
     }
 
     @Test
