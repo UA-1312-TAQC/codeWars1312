@@ -1,7 +1,6 @@
 package org.academy.utils;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class TaskRunner {
     Author author;
@@ -111,7 +110,7 @@ public class TaskRunner {
         System.out.println(result);
     }
 
-    public void runDivisibleBy() {
+    public void runDivisibleBy(){
         System.out.println("Enter integer numbers, separated by spaces:");
         int[] numbers = reader.readIntArr();
 
@@ -191,5 +190,12 @@ public class TaskRunner {
         } catch (Exception e) {
             System.out.println("Error processing input: " + e.getMessage());
         }
+    }
+
+    public void runTwoDecimalPlaces(){
+        System.out.print("Enter the double number: ");
+        double value = reader.readDouble();
+        double result = author.getEight().TwoDecimalPlaces(value);
+        System.out.println("The result is rounded to 2 decimal places: " + result);
     }
 }
