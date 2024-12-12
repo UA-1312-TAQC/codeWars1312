@@ -23,7 +23,27 @@ public class Six implements ISix {
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        String[] towns = strng.split("\n");
+
+        for (String townData : towns) {
+            String[] parts = townData.split(":");
+            String townName = parts[0].trim();
+            if (townName.equals(town)) {
+
+                String[] rainfalls = parts[1].trim().split(",");
+                double sum = 0;
+
+                for (String rainfall : rainfalls) {
+
+                    String[] split = rainfall.trim().split(" ");
+                    sum += Double.parseDouble(split[1].trim());
+                }
+
+                return sum / rainfalls.length;
+            }
+        }
+
+        return -1;
     }
 
     @Override
