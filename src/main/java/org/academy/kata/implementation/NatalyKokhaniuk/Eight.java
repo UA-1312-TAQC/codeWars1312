@@ -21,7 +21,25 @@ public class Eight implements IEight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        String resStr="[";
+        for (int i = 0; i < array.length; i++) {
+            resStr+=array[i];
+            if(i != array.length-1)resStr+=", ";
+        }
+        resStr+="] -> [";
+        int[] resArray=array;
+        for (int i = 0; i < array.length; i++) {
+            if(Math.sqrt(array[i])==Math.round(Math.sqrt(array[i]))) resArray[i]=(int)Math.sqrt(array[i]);
+            else resArray[i]=array[i]*array[i];
+        }
+
+        for (int i = 0; i < resArray.length; i++) {
+            resStr+=resArray[i];
+            if(i != resArray.length-1)resStr+=", ";
+        }
+        resStr+="]";
+        System.out.print(resStr);
+        return resArray;
     }
 
     @Override
