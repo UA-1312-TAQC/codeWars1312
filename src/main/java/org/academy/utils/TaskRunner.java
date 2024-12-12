@@ -9,14 +9,14 @@ public class TaskRunner {
         this.reader = new ConsoleReader();
     }
 
-    public void keepHydrated() {
+    public void runLiters() {
         System.out.println("input double number");
         double hours = reader.readDouble();
         int result = author.getEight().liters(hours);
         System.out.println("In " + hours + " Nathan will drink " + result + " liters");
     }
 
-    public void getVolumeOfCuboid() {
+    public void runGetVolumeOfCuboid() {
         System.out.println("Input double length:");
         double length = reader.readDouble();
         System.out.println("Input double width:");
@@ -27,7 +27,7 @@ public class TaskRunner {
         System.out.println("Volume of a cuboid: %.2f%n" + result);
     }
 
-    public void stringToNumber() {
+    public void runStringToNumber() {
         System.out.println("Input string of numbers: ");
         String str = reader.readString();
         int result = author.getEight().stringToNumber(str);
@@ -41,7 +41,7 @@ public class TaskRunner {
         System.out.println("number " + number + (result ? " is wilson prime" : " is not wilson prime"));
     }
 
-    public void Rainfall() {
+    public void runRainfall() {
         System.out.println("Input town name:");
         String town = reader.readString();
 
@@ -56,7 +56,7 @@ public class TaskRunner {
         System.out.println("Variance of rainfall: " + varianceResult);
     }
 
-    public void Converter() {
+    public void runMpgToKPM() {
         System.out.println("Enter miles per imperial gallon (mpg) to convert into kilometers per liter (kpl):");
         float mpg = reader.readFloat();
         float result = author.getEight().mpgToKPM(mpg);
@@ -65,7 +65,7 @@ public class TaskRunner {
 
     ;
 
-    public void SquareRoot() {
+    public void runSquareOrSquareRoot() {
         System.out.println("Enter integers separated by spaces:");
         int[] array = reader.readIntArr();
         int[] resultArray = author.getEight().squareOrSquareRoot(array);
@@ -75,7 +75,7 @@ public class TaskRunner {
         }
     }
 
-    public void findTheSmallest() {
+    public void runSmallest() {
         System.out.print("Plese enter the long number: ");
         long num = reader.readLong();
         String numStr = Long.toString(num);
