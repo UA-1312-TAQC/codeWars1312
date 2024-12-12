@@ -107,6 +107,21 @@ public class ConsoleReader {
         }
     }
 
+    public String[] readStringArrByComma() {
+        while (true) {
+            try {
+                String[] arr = reader.readLine().trim().split(",");
+                if (arr.length == 0) {
+                    System.out.println("The input cannot be empty. Please try again.");
+                    continue;
+                }
+                return arr;
+            } catch (IOException e) {
+                System.out.println("The input string value should be separated by a comma.");
+            }
+        }
+    }
+
     public double[] readDoubleArr() {
         while (true) {
             try {
