@@ -17,7 +17,8 @@ public class Eight implements IEight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        //Formula to calculate volume of a cuboid: length * width * height
+        return length * width * height;
     }
 
     @Override
