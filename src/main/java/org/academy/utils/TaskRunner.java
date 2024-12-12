@@ -150,4 +150,22 @@ public class TaskRunner {
             System.out.println("For volume " + volume + ", you need " + result + " cubes");
         }
     }
+    public void runGap() {
+        System.out.println("Enter gap size (g): ");
+        int g = reader.readInt();
+
+        System.out.println("Enter the starting number (m): ");
+        long m = reader.readLong();
+
+        System.out.println("Enter the ending number (n): ");
+        long n = reader.readLong();
+
+        long[] result = author.getFive().gap(g, m, n);
+
+        if (result != null) {
+            System.out.println("Gap found: [" + result[0] + ", " + result[1] + "]");
+        } else {
+            System.out.println("No such gap found in the given range.");
+        }
+    }
 }
