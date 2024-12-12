@@ -24,21 +24,47 @@ public class ConsoleReader {
     }
 
     public double readDouble() {
-        return 0.0;
+        while (true) {
+            try {
+                return Double.parseDouble(reader.readLine());
+            } catch (IOException | NumberFormatException e) {
+                System.out.println("Input should be a double.");
+            }
+        }
     }
 
     public String readString() {
-        return "";
+        while (true) {
+            try {
+                return reader.readLine();
+            } catch (IOException e) {
+                System.out.println("Input should be a string in one line.");
+            }
+
+        }
     }
 
     public float readFloat() {
-        return 0;
+        while (true) {
+            try {
+                System.out.print("Enter a float value: ");
+                return Float.parseFloat(reader.readLine());
+            } catch (IOException | NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid float value.");
+            }
+        }
     }
 
     public BigInteger readBigInteger() {
-        return BigInteger.ZERO;
+        while (true) {
+            try {
+                System.out.print("Enter a BigInteger value: ");
+                return new BigInteger(reader.readLine());
+            } catch (IOException | NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid BigInteger value.");
+            }
+        }
     }
-
 
     public long readLong() {
         while (true) {
@@ -67,12 +93,65 @@ public class ConsoleReader {
     }
 
     public String[] readStringArr() {
-        return new String[]{};
+        while (true) {
+            try {
+                String[] arr = reader.readLine().trim().split(",\\s*");
+                if (arr.length == 0) {
+                    System.out.println("The input cannot be empty. Please try again.");
+                    continue;
+                }
+                return arr;
+            } catch (IOException e) {
+                System.out.println("The input string value should be separated by a comma and a space.");
+            }
+        }
+    }
+
+    public String[] readStringArrByComma() {
+        while (true) {
+            try {
+                String[] arr = reader.readLine().trim().split(",");
+                if (arr.length == 0) {
+                    System.out.println("The input cannot be empty. Please try again.");
+                    continue;
+                }
+                return arr;
+            } catch (IOException e) {
+                System.out.println("The input string value should be separated by a comma.");
+            }
+        }
     }
 
     public double[] readDoubleArr() {
-        return new double[]{};
+        while (true) {
+            try {
+                String[] in = reader.readLine().trim().split("\\s+");
+                double[] arr = new double[in.length];
+                for (int i = 0; i < in.length; i++) {
+                    arr[i] = Double.parseDouble(in[i]);
+                }
+                return arr;
+            } catch (IOException | NumberFormatException e) {
+                System.out.println("Input should be doubles separated by spaces.");
+            }
+        }
     }
 
+    public String readMultipleLines(String endMarker) {
+        StringBuilder input = new StringBuilder();
+        System.out.println("Enter your input. Type '" + endMarker + "' to finish:");
+        while (true) {
+            try {
+                String line = reader.readLine();
+                if (endMarker.equalsIgnoreCase(line.trim())) {
+                    break;
+                }
+                input.append(line).append("\n");
+            } catch (IOException e) {
+                System.out.println("Input error. Please try again.");
+            }
+        }
+        return input.toString().trim();
+    }
 
 }
