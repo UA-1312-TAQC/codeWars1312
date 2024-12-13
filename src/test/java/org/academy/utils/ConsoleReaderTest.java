@@ -55,6 +55,29 @@ public class ConsoleReaderTest {
 
     @Test
     public void testReadFloat() {
+        //positive float
+        String positiveFloatInput = "18.15\n";
+        InputStream inputStream = new ByteArrayInputStream(positiveFloatInput.getBytes());
+        ConsoleReader consoleReader = new ConsoleReader(inputStream);
+        double actual = consoleReader.readFloat();
+        double expected = 18.15;
+        Assert.assertEquals(actual, expected, 0.0001);
+
+        //negative float
+        String negativeFloatInput = "-91.47\n";
+        inputStream = new ByteArrayInputStream(negativeFloatInput.getBytes());
+        consoleReader = new ConsoleReader(inputStream);
+        actual = consoleReader.readFloat();
+        expected = -91.47;
+        Assert.assertEquals(actual, expected, 0.0001);
+
+        //zero
+        String zeroInput = "0.0\n";
+        inputStream = new ByteArrayInputStream(zeroInput.getBytes());
+        consoleReader = new ConsoleReader(inputStream);
+        actual = consoleReader.readFloat();
+        expected = 0.0;
+        Assert.assertEquals(actual, expected, 0.0001);
     }
 
     @Test
