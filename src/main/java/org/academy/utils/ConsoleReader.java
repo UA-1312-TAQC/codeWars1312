@@ -148,6 +148,7 @@ public class ConsoleReader {
         }
     }
 
+
     public String readMultipleLines(String endMarker) {
         StringBuilder input = new StringBuilder();
         System.out.println("Enter your input. Type '" + endMarker + "' to finish:");

@@ -146,7 +146,33 @@ public class ConsoleReaderTest {
     }
 
     @Test
-    public void testReadDoubleArr() {
+    public void testReadDoubleArrValidInput() {
+        String simulatedInput = "1.2 3.4 5.6\n";
+        InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        ConsoleReader consoleReader = new ConsoleReader(inputStream);
+
+        double[] result = consoleReader.readDoubleArr();
+        Assert.assertEquals(result, new double[]{1.2, 3.4, 5.6}, "The array should match the input values.");
+    }
+
+    @Test
+    public void testReadDoubleArrEmptyAndValidInput() {
+        String simulatedInput = " \n1.2 3.4 5.6\n";
+        InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        ConsoleReader consoleReader = new ConsoleReader(inputStream);
+
+        double[] result = consoleReader.readDoubleArr();
+        Assert.assertEquals(result, new double[]{1.2, 3.4, 5.6}, "The method should skip empty lines and return valid input.");
+    }
+
+    @Test
+    public void testReadDoubleArrInvalidAndValidInput() {
+        String simulatedInput = "abc\n1.2 3.4 5.6\n";
+        InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        ConsoleReader consoleReader = new ConsoleReader(inputStream);
+
+        double[] result = consoleReader.readDoubleArr();
+        Assert.assertEquals(result, new double[]{1.2, 3.4, 5.6}, "The method should handle invalid input and return valid input.");
     }
 
     @Test
