@@ -26,4 +26,15 @@ public class SevenDataProvider extends BaseDataProvider{
         return combineData(inputs, SEVENTH);
     }
 
+    @DataProvider(name = "data-SeriesSum")
+    public static Iterator<Object[]> dpSeriesSum() {
+        final List<Object[]> inputs = new ArrayList<>();
+
+        inputs.add(new Object[]{ 5, "1.57" });
+
+        return combineData(inputs, SEVENTH);
+    }
+    
+
+
 }
