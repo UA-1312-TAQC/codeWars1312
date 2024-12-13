@@ -21,8 +21,21 @@ public class SixTest extends SixDataProvider {
     public void testBalance() {
     }
 
-    @Test
-    public void testF() {
+    @Test(description="Positive testing of Task F", dataProvider="data-F-Positive",
+            groups="testF")
+    public void testFPositive(ISix six, double data, double expected) {
+        double actual = six.f(data);
+        double delta = 0.0000001;
+        Assert.assertEquals(actual, expected, delta,
+                "Expected: " + expected + ", but actual is " + actual);
+    }
+
+    @Test(description="Negative testing of Task F", dataProvider="data-F-Negative",
+            groups="testF")
+    public void testFNegative(ISix six, double data, double expected) {
+        double actual = six.f(data);
+        double delta = 0.0000001;
+        Assert.assertNotEquals(actual, expected);
     }
 
     @Test(dataProvider = "data-Mean")
