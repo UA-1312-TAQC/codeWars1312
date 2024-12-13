@@ -137,7 +137,6 @@ public class SixDataProvider extends BaseDataProvider {
         return combineData(inputs, SIX);
     }
 
-
     @DataProvider(name = "data-findNb")
     public static Iterator<Object[]> dbFindNb() {
         final List<Object[]> inputs = new ArrayList<>();
