@@ -121,4 +121,18 @@ public class EightDataProvider extends BaseDataProvider {
         inputs.add(new Object[]{new int[]{0, 0, 0}, new int[]{0, 0}});
         return combineData(inputs, EIGHTS);
     }
+    @DataProvider(name = "data-StringToNumber")
+    public static Iterator<Object[]> dpStringToNumber() {
+        final List<Object[]> inputs = new ArrayList<>();
+        // Positive tests
+        inputs.add(new Object[]{"1234", 1234});
+        inputs.add(new Object[]{"605", 605});
+        inputs.add(new Object[]{"1405", 1405});
+        inputs.add(new Object[]{"0", 0});
+        inputs.add(new Object[]{"-7", -7});
+        inputs.add(new Object[]{"-12345", -12345});
+
+        return combineData(inputs, EIGHTS);
+    }
+
 }
