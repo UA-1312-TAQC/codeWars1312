@@ -9,7 +9,8 @@ public class Eight implements IEight {
     @Override
     public int liters(double time) {
         if (time < 0 || time > Integer.MAX_VALUE * 2.0) {
-            throw new IllegalArgumentException(String.format("Time must be between 0 and %.2f.", Integer.MAX_VALUE * 2.0));
+            //throw new IllegalArgumentException(String.format("Time must be between 0 and %.2f.", Integer.MAX_VALUE * 2.0));
+            return - 1;
         }
 
         return (int) (time * 0.5);
