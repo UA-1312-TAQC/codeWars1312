@@ -40,8 +40,10 @@ public class EightTest extends EightDataProvider {
         Assert.assertEquals(actual, expected);
     }
 
-    @Test
-    public void testCountPositivesSumNegatives() {
+    @Test(dataProvider = "data-CountPositivesSumNegatives")
+    public void testCountPositivesSumNegatives(IEight eight, int[] input, int[] expected) {
+        int[] actual = eight.countPositivesSumNegatives(input);
+        Assert.assertEquals(actual, expected);
     }
 
     @Test
