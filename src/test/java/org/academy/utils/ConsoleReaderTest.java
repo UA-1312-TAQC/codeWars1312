@@ -22,38 +22,12 @@ public class ConsoleReaderTest extends UtilsDataProvider{
     public void testReadInt() {
     }
 
-    @Test
-    public void testReadDouble() {
-        // positive double
-        String positiveDoubleInput = "23.45\n";
-        InputStream inputStream = new ByteArrayInputStream(positiveDoubleInput.getBytes());
+    @Test(dataProvider = "double-input")
+    public void testReadDouble(String input, double expected) {
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         ConsoleReader consoleReader = new ConsoleReader(inputStream);
+
         double actual = consoleReader.readDouble();
-        double expected = 23.45;
-        Assert.assertEquals(actual, expected, 0.0001);
-
-        // mixed input with valid double
-        String mixedInput = "12abc34\n-45.67\n";
-        inputStream = new ByteArrayInputStream(mixedInput.getBytes());
-        consoleReader = new ConsoleReader(inputStream);
-        actual = consoleReader.readDouble();
-        expected = -45.67;
-        Assert.assertEquals(actual, expected, 0.0001);
-
-        // negative double
-        String negativeDoubleInput = "-15.65\n";
-        inputStream = new ByteArrayInputStream(negativeDoubleInput.getBytes());
-        consoleReader = new ConsoleReader(inputStream);
-        actual = consoleReader.readDouble();
-        expected = -15.65;
-        Assert.assertEquals(actual, expected, 0.0001);
-
-        // zero
-        String zeroInput = "0.0\n";
-        inputStream = new ByteArrayInputStream(zeroInput.getBytes());
-        consoleReader = new ConsoleReader(inputStream);
-        actual = consoleReader.readDouble();
-        expected = 0.0;
         Assert.assertEquals(actual, expected, 0.0001);
     }
 
