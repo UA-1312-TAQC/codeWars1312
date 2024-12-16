@@ -1,10 +1,15 @@
 package org.academy.utils;
 
+import com.sun.source.tree.AssertTree;
+import org.academy.utils.dataprovider.LongDataProvider;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.*;
 import java.util.Arrays;
+
+import org.academy.utils.dataprovider.LongDataProvider.*;
 
 import static org.testng.Assert.*;
 
@@ -84,8 +89,62 @@ public class ConsoleReaderTest {
     public void testReadBigInteger() {
     }
 
-    @Test
-    public void testReadLong() {
+    @Test(dataProviderClass = LongDataProvider.class, dataProvider = "validGreaterThanZero")
+    public void testReadLong001(String data) {
+        uniLongInputTest(data);
+    }
+
+    @Test(dataProviderClass = LongDataProvider.class, dataProvider = "validLessThenZero")
+    public void testReadLong002(String data) {
+        uniLongInputTest(data);
+    }
+
+    @Test(dataProviderClass = LongDataProvider.class, dataProvider = "validBoundaryValues")
+    public void testReadLong003(String data) {
+        uniLongInputTest(data);
+    }
+
+    @Test(dataProviderClass = LongDataProvider.class, dataProvider = "invalidSymbols")
+    public void testReadLong004(String data) {
+        uniNotLongInputTest(data);
+    }
+
+    @Test(dataProviderClass = LongDataProvider.class, dataProvider = "invalidGreaterThanMAX")
+    public void testReadLong005(String data) {
+        uniNotLongInputTest(data);
+    }
+
+    @Test(dataProviderClass = LongDataProvider.class, dataProvider = "invalidLessThanMIX")
+    public void testReadLong006(String data) {
+        uniNotLongInputTest(data);
+    }
+
+    @Test(dataProviderClass = LongDataProvider.class, dataProvider = "invalidLikeDouble")
+    public void testReadLong007(String data) {
+        uniNotLongInputTest(data);
+    }
+
+    private void uniLongInputTest(String data) {
+        String newData = data + "\n777\n";
+        InputStream inputStream = new ByteArrayInputStream(newData.getBytes());
+        ConsoleReader consoleReader = new ConsoleReader(inputStream);
+        long actual = consoleReader.readLong();
+        Assert.assertEquals(actual, Long.parseLong(data));
+    }
+
+    private void uniNotLongInputTest(String data) {
+        String newData = data + "\n777\n";
+        ByteArrayInputStream input = new ByteArrayInputStream(newData.getBytes());
+        System.setIn(input);
+
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+
+        ConsoleReader consoleReader = new ConsoleReader();
+        consoleReader.readLong();
+
+        String consoleOutput = output.toString();
+        Assert.assertTrue(consoleOutput.contains("Input should be a long."));
     }
 
     @Test
