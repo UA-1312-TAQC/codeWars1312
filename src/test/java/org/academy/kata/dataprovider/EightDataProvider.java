@@ -109,4 +109,16 @@ public class EightDataProvider extends BaseDataProvider {
         });
         return combineData(inputs, EIGHTS);
     }
+    @DataProvider(name = "data-CountPositivesSumNegatives")
+    public static Iterator<Object[]> dpCountPositivesSumNegatives() {
+        final List<Object[]> inputs = new ArrayList<>();
+        inputs.add(new Object[]{new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15}, new int[]{10, -65}});
+        inputs.add(new Object[]{new int[]{0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14}, new int[]{8, -50}});
+        inputs.add(new Object[]{new int[]{1, 7, 54, 4, 5, 6, -7, -8, -9, -10, -11, -52, -34}, new int[]{6, -131}});
+        inputs.add(new Object[]{new int[]{0, 1, 2, 3, 4, -5}, new int[]{4, -5}}); 
+        inputs.add(new Object[]{new int[]{1, 2, 3, -1, -2, -3}, new int[]{3, -6}}); 
+        inputs.add(new Object[]{new int[]{}, new int[]{0, 0}});
+        inputs.add(new Object[]{new int[]{0, 0, 0}, new int[]{0, 0}});
+        return combineData(inputs, EIGHTS);
+    }
 }
