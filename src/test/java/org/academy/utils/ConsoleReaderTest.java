@@ -1,5 +1,6 @@
 package org.academy.utils;
 
+import org.academy.kata.dataprovider.UtilsDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -8,7 +9,7 @@ import java.util.Arrays;
 
 import static org.testng.Assert.*;
 
-public class ConsoleReaderTest {
+public class ConsoleReaderTest extends UtilsDataProvider{
 
     @Test
     public void testReadInt() {
@@ -49,29 +50,15 @@ public class ConsoleReaderTest {
         Assert.assertEquals(actual, expected, 0.0001);
     }
 
-    @Test
-    public void testReadString() {
+    @Test(dataProvider = "data-readString")
+    public void testReadString(String input, String output) {
 
-        String emptyString = "";
-        InputStream inputStream = new ByteArrayInputStream(emptyString.getBytes());
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         ConsoleReader consoleReader = new ConsoleReader(inputStream);
         String actual = consoleReader.readString();
-        String expected = null;
+        String expected = output;
         Assert.assertEquals(actual, expected);
 
-        String oneSpaseString = "\s\t";
-        inputStream = new ByteArrayInputStream(oneSpaseString.getBytes());
-        consoleReader = new ConsoleReader(inputStream);
-        actual = consoleReader.readString();
-        expected = "\s\t";
-        Assert.assertEquals(actual, expected);
-
-        String validString = "No, i am Betman";
-        inputStream = new ByteArrayInputStream(validString.getBytes());
-        consoleReader = new ConsoleReader(inputStream);
-        actual = consoleReader.readString();
-        expected = "Now, i am Betman";
-        Assert.assertEquals(actual, expected);
     }
 
     @Test
