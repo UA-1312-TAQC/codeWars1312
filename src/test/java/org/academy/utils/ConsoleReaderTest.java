@@ -16,7 +16,7 @@ public class ConsoleReaderTest {
 
     @Test
     public void testReadDouble() {
-        //positive double
+        // positive double
         String positiveDoubleInput = "23.45\n";
         InputStream inputStream = new ByteArrayInputStream(positiveDoubleInput.getBytes());
         ConsoleReader consoleReader = new ConsoleReader(inputStream);
@@ -24,7 +24,7 @@ public class ConsoleReaderTest {
         double expected = 23.45;
         Assert.assertEquals(actual, expected, 0.0001);
 
-        //mixed input with valid double
+        // mixed input with valid double
         String mixedInput = "12abc34\n-45.67\n";
         inputStream = new ByteArrayInputStream(mixedInput.getBytes());
         consoleReader = new ConsoleReader(inputStream);
@@ -32,7 +32,7 @@ public class ConsoleReaderTest {
         expected = -45.67;
         Assert.assertEquals(actual, expected, 0.0001);
 
-        //negative double
+        // negative double
         String negativeDoubleInput = "-15.65\n";
         inputStream = new ByteArrayInputStream(negativeDoubleInput.getBytes());
         consoleReader = new ConsoleReader(inputStream);
@@ -40,7 +40,7 @@ public class ConsoleReaderTest {
         expected = -15.65;
         Assert.assertEquals(actual, expected, 0.0001);
 
-        //zero
+        // zero
         String zeroInput = "0.0\n";
         inputStream = new ByteArrayInputStream(zeroInput.getBytes());
         consoleReader = new ConsoleReader(inputStream);
@@ -51,11 +51,32 @@ public class ConsoleReaderTest {
 
     @Test
     public void testReadString() {
+
+        String emptyString = "";
+        InputStream inputStream = new ByteArrayInputStream(emptyString.getBytes());
+        ConsoleReader consoleReader = new ConsoleReader(inputStream);
+        String actual = consoleReader.readString();
+        String expected = null;
+        Assert.assertEquals(actual, expected);
+
+        String oneSpaseString = "\s\t";
+        inputStream = new ByteArrayInputStream(oneSpaseString.getBytes());
+        consoleReader = new ConsoleReader(inputStream);
+        actual = consoleReader.readString();
+        expected = "\s\t";
+        Assert.assertEquals(actual, expected);
+
+        String validString = "No, i am Betman";
+        inputStream = new ByteArrayInputStream(validString.getBytes());
+        consoleReader = new ConsoleReader(inputStream);
+        actual = consoleReader.readString();
+        expected = "Now, i am Betman";
+        Assert.assertEquals(actual, expected);
     }
 
     @Test
     public void testReadFloat() {
-        //positive float
+        // positive float
         String positiveFloatInput = "18.15\n";
         InputStream inputStream = new ByteArrayInputStream(positiveFloatInput.getBytes());
         ConsoleReader consoleReader = new ConsoleReader(inputStream);
@@ -63,7 +84,7 @@ public class ConsoleReaderTest {
         double expected = 18.15;
         Assert.assertEquals(actual, expected, 0.0001);
 
-        //negative float
+        // negative float
         String negativeFloatInput = "-91.47\n";
         inputStream = new ByteArrayInputStream(negativeFloatInput.getBytes());
         consoleReader = new ConsoleReader(inputStream);
@@ -71,7 +92,7 @@ public class ConsoleReaderTest {
         expected = -91.47;
         Assert.assertEquals(actual, expected, 0.0001);
 
-        //zero
+        // zero
         String zeroInput = "0.0\n";
         inputStream = new ByteArrayInputStream(zeroInput.getBytes());
         consoleReader = new ConsoleReader(inputStream);
@@ -90,17 +111,17 @@ public class ConsoleReaderTest {
 
     @Test
     public void testReadIntArr() {
-        //positive
+        // positive
         String simulatedInput = "10 20 30 40 50\n";
         InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
         ConsoleReader consoleReader = new ConsoleReader(inputStream);
 
         int[] actual = consoleReader.readIntArr();
-        int[] expected = {10, 20, 30, 40, 50};
+        int[] expected = { 10, 20, 30, 40, 50 };
 
         assertTrue(Arrays.equals(actual, expected));
 
-        //negative
+        // negative
         simulatedInput = "\naa b c\n0.8 7.9\n10 20 30 40 50\n";
         inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
         consoleReader = new ConsoleReader(inputStream);
@@ -111,7 +132,7 @@ public class ConsoleReaderTest {
 
     @Test
     public void testReadStringArr() {
-        String[] expectedStringArr = new String[]{"Automation", "Testing", "in", "Java"};
+        String[] expectedStringArr = new String[] { "Automation", "Testing", "in", "Java" };
 
         // --Valid data--
         String validInput = "Automation, Testing, in, Java\n";
@@ -126,9 +147,9 @@ public class ConsoleReaderTest {
         consoleReader = new ConsoleReader(inputStream);
         String[] resultEmptyInput = consoleReader.readStringArr();
 
-        //Validate that the result contains a single empty string
-        assertEquals(resultEmptyInput.length, 1); //Expect one element
-        assertEquals(resultEmptyInput[0], ""); //Validate that the element is an empty string
+        // Validate that the result contains a single empty string
+        assertEquals(resultEmptyInput.length, 1); // Expect one element
+        assertEquals(resultEmptyInput[0], ""); // Validate that the element is an empty string
 
     }
 
@@ -140,7 +161,7 @@ public class ConsoleReaderTest {
         ConsoleReader consoleReader = new ConsoleReader(inputStream);
 
         String[] actual = consoleReader.readStringArrByComma();
-        String[] expected = {"one", "two", "three"};
+        String[] expected = { "one", "two", "three" };
 
         assertEquals(actual, expected);
     }
@@ -152,7 +173,7 @@ public class ConsoleReaderTest {
         ConsoleReader consoleReader = new ConsoleReader(inputStream);
 
         double[] result = consoleReader.readDoubleArr();
-        Assert.assertEquals(result, new double[]{1.2, 3.4, 5.6}, "The array should match the input values.");
+        Assert.assertEquals(result, new double[] { 1.2, 3.4, 5.6 }, "The array should match the input values.");
     }
 
     @Test
@@ -162,7 +183,8 @@ public class ConsoleReaderTest {
         ConsoleReader consoleReader = new ConsoleReader(inputStream);
 
         double[] result = consoleReader.readDoubleArr();
-        Assert.assertEquals(result, new double[]{1.2, 3.4, 5.6}, "The method should skip empty lines and return valid input.");
+        Assert.assertEquals(result, new double[] { 1.2, 3.4, 5.6 },
+                "The method should skip empty lines and return valid input.");
     }
 
     @Test
@@ -172,18 +194,18 @@ public class ConsoleReaderTest {
         ConsoleReader consoleReader = new ConsoleReader(inputStream);
 
         double[] result = consoleReader.readDoubleArr();
-        Assert.assertEquals(result, new double[]{1.2, 3.4, 5.6}, "The method should handle invalid input and return valid input.");
+        Assert.assertEquals(result, new double[] { 1.2, 3.4, 5.6 },
+                "The method should handle invalid input and return valid input.");
     }
 
     @Test
     public void testReadMultipleLines() {
         Object[][] testCases = {
-                {"Hello\nThis is a test\nDONE\n", "Hello\nThis is a test"},
-                {"Line 1\nLine 2\nLine 3\nDONE\n", "Line 1\nLine 2\nLine 3"},
-                {"Only one line\nDONE\n", "Only one line"},
-                {"First Line\nSecond Line\nThird Line\nDONE\n", "First Line\nSecond Line\nThird Line"},
-                {"Empty input followed by DONE\nDONE\n", "Empty input followed by DONE"},
-
+                { "Hello\nThis is a test\nDONE\n", "Hello\nThis is a test" },
+                { "Line 1\nLine 2\nLine 3\nDONE\n", "Line 1\nLine 2\nLine 3" },
+                { "Only one line\nDONE\n", "Only one line" },
+                { "First Line\nSecond Line\nThird Line\nDONE\n", "First Line\nSecond Line\nThird Line" },
+                { "Empty input followed by DONE\nDONE\n", "Empty input followed by DONE" },
 
         };
 
