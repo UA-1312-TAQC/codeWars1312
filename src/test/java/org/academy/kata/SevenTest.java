@@ -6,19 +6,15 @@ import org.testng.annotations.Test;
 
 public class SevenTest extends SevenDataProvider {
 
-    @Test(dataProvider = "data-newAvg")
-    public void testNewAvg(ISeven seven, double[] arr, double navg, long expected, boolean expectException) {
-        if (!expectException) {
-            long actual = seven.newAvg(arr, navg);
-            Assert.assertEquals(actual, expected);
-        } else {
-            try {
-                seven.newAvg(arr, navg);
-                Assert.fail("Expected IllegalArgumentException was't thrown");
-            } catch (IllegalArgumentException ex) {
-                // тест проходить, якщо exception зловлено
-            }
-        }
+    @Test(dataProvider = "data-newAvg-positive")
+    public void testNewAvgPositive(ISeven seven, double[] arr, double navg, long expected) {
+        long actual = seven.newAvg(arr, navg);
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test(dataProvider = "data-newAvg-negative", expectedExceptions = IllegalArgumentException.class)
+    public void testNewAvgNegative(ISeven seven, double[] arr, double navg) {
+        seven.newAvg(arr, navg);
     }
 
     @Test(dataProvider = "data-SeriesSum")
