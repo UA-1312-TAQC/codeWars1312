@@ -16,12 +16,18 @@ public class SevenTest extends SevenDataProvider {
                 seven.newAvg(arr, navg);
                 Assert.fail("Expected IllegalArgumentException was't thrown");
             } catch (IllegalArgumentException ex) {
-              //тест проходить, якщо  exception зловлено
+                // тест проходить, якщо exception зловлено
             }
         }
     }
 
-    @Test
-    public void testSeriesSum() {
+    @Test(dataProvider = "data-SeriesSum")
+    public void testSeriesSum(ISeven seven, int n, String expected) {
+        String actual = seven.seriesSum(n);
+        if (actual != "") {
+            Assert.assertEquals(actual, expected);
+        } else {
+            Assert.fail("Method" + seven + "SeriesSum must be implemented");
+        }
     }
 }
