@@ -34,7 +34,15 @@ public class Eight implements IEight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        int res = 0;
+        try {
+            res = Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            System.out.println("Unable to convert \"" + str + "\" into a number");
+            return -1;
+        }
+        System.out.println("\"" + str + "\" --> " + res);
+        return res;
     }
 
     @Override
