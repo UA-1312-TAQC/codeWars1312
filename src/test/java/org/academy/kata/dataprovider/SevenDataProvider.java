@@ -31,6 +31,8 @@ public class SevenDataProvider extends BaseDataProvider{
         final List<Object[]> inputs = new ArrayList<>();
 
         inputs.add(new Object[]{ 5, "1.57" });
+        inputs.add(new Object[]{ 0, "0.00" });
+        inputs.add(new Object[]{ 15, "1.94" });
 
         return combineData(inputs, SEVENTH);
     }

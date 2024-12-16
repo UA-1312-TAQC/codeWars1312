@@ -23,12 +23,11 @@ public class SevenTest extends SevenDataProvider {
 
     @Test(dataProvider = "data-SeriesSum")
     public void testSeriesSum(ISeven seven, int n, String expected) {
-        try {
-            String actual = seven.seriesSum(n);
+        String actual = seven.seriesSum(n);
+        if (actual != "") {
             Assert.assertEquals(actual, expected);
-        } catch (Exception e) {
-            System.out.println(seven);
+        } else {
+            Assert.fail("Method" + seven + "SeriesSum must be implemented");
         }
-        
     }
 }
