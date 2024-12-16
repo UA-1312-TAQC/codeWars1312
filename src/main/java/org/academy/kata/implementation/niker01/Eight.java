@@ -6,46 +6,83 @@ import org.academy.kata.IEight;
 public class Eight implements IEight {
     @Override
     public int liters(double time) {
-        return 0;
+        double litresHour = 0.5;
+        double result = time * litresHour;
+        return (int) result;
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        return length * width * height;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        double result = mpg * (1.609344 / 4.54609188);
+        result = Math.round(result * 100.0) / 100.0;
+        return (float) result;
     }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        for (int i = 0; i < array.length; i++) {
+            double sqrt = Math.sqrt(array[i]);
+            if (sqrt == (int) sqrt) {
+                array[i] = (int) sqrt;
+            } else {
+                array[i] = array[i] * array[i];
+            }
+        }
+        return array;
     }
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (input == null || input.length == 0) {
+            return new int[]{};
+        }
+        int[] result = {0, 0};
+        for (int i = 0; i < input.length; i++) {
+            if (input[i] > 0) {
+                result[0] += 1;
+            } else if (input[i] < 0) {
+                result[1] += input[i];
+            }
+        }
+        return result;
     }
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return Integer.parseInt(str);
     }
 
     @Override
     public double TwoDecimalPlaces(double number) {
-        return 0;
+        return Math.round(number * 100.0) / 100.0;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        int count = 0;
+        int n = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] % divider == 0) {
+                count++;
+            }
+        }
+        int[] result = new int[count];
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] % divider == 0) {
+                result[n] = numbers[i];
+                n++;
+            }
+        }
+        return result;
     }
 
     @Override
-    public boolean am_i_wilson(double n) {
-        return false;
+    public boolean am_i_wilson(long n) {
+        return n == 5 || n == 13 || n == 563;
     }
 }
