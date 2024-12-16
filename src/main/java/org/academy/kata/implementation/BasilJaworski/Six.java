@@ -151,7 +151,7 @@ public class Six implements ISix {
         byte row_num = row_get_bymonth(strng, town);
         if (row_num == -1) return -1.0;
 
-        String row = row_get(strng, row_num);
+        String row = get_row(strng, row_num);
         double[] rainfalls = rainfall_get(row);
         double mean = mean(town, strng);
         double variance = 0.00;
@@ -162,7 +162,7 @@ public class Six implements ISix {
         return variance / 12;
     }
 
-    public static String row_get(String str, int idx){
+    public static String get_row(String str, int idx){
         String[] rows = str.split("\n");
         if (idx < 0 || idx >= rows.length) return "";
         return rows[idx];
