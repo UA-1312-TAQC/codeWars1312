@@ -79,7 +79,11 @@ public class Eight implements IEight {
 
     @Override
     public double TwoDecimalPlaces(double number) {
-        return 0;
+        BigDecimal bd = new BigDecimal(number);
+        bd = bd.setScale(2, RoundingMode.HALF_UP);
+        double result = bd.doubleValue();
+
+        return result;
     }
 
     @Override
