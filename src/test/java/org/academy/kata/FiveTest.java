@@ -4,6 +4,8 @@ import org.academy.kata.dataprovider.FiveDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.math.BigInteger;
+
 public class FiveTest extends FiveDataProvider {
 
     @Test(dataProvider = "data-Gap")
@@ -18,9 +20,12 @@ public class FiveTest extends FiveDataProvider {
         Assert.assertEquals(actual, expected);
 
     }
-    @Test
-    public void testPerimeter() {
+    @Test(dataProvider = "data-Perimeter")
+    public void testPerimeter(IFive five, BigInteger input, BigInteger expected) {
+        BigInteger actual = five.perimeter(input);
+        Assert.assertEquals(actual, expected);
     }
+
 
     @Test
     public void testSolve() {
