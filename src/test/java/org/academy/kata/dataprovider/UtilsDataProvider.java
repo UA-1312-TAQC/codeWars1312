@@ -32,5 +32,13 @@ public class UtilsDataProvider {
         return pairs.iterator();
 
     }
-
+    @DataProvider(name = "double-input")
+    public static Object[][] dpReadDouble() {
+        return new Object[][] {
+                {"23.45\n", 23.45},
+                {"12abc34\n-45.67\n", -45.67},
+                {"-15.65\n", -15.65},
+                {"0.0\n", 0.0}
+        };
+    }
 }
