@@ -10,7 +10,17 @@ import java.util.*;
 public class Six implements ISix {
     @Override
     public long findNb(long m) {
-        return 0;
+        long res=1, M=m;
+        while(M>0){
+            M-=res*res*res;
+            if(M==0) break;
+            res++;
+            if(M<res*res*res) {
+                System.out.println("Unable to buid a cube from "+m+" blocks.");
+                return -1;}
+        }
+        System.out.println("findNb("+m+") --> "+res);
+        return res;
     }
 
     @Override
