@@ -12,10 +12,12 @@ public class FiveTest extends FiveDataProvider {
         Assert.assertEquals(actual, expected);
     }
 
-    @Test
-    public void testZeros() {
-    }
+    @Test(dataProvider = "data-Zeros")
+    public void testZeros(IFive five, int input, int expected) {
+        int actual = five.zeros(input);
+        Assert.assertEquals(actual, expected);
 
+    }
     @Test
     public void testPerimeter() {
     }
