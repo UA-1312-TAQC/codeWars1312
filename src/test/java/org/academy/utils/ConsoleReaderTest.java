@@ -177,5 +177,26 @@ public class ConsoleReaderTest {
 
     @Test
     public void testReadMultipleLines() {
+        Object[][] testCases = {
+                {"Hello\nThis is a test\nDONE\n", "Hello\nThis is a test"},
+                {"Line 1\nLine 2\nLine 3\nDONE\n", "Line 1\nLine 2\nLine 3"},
+                {"Only one line\nDONE\n", "Only one line"},
+                {"First Line\nSecond Line\nThird Line\nDONE\n", "First Line\nSecond Line\nThird Line"},
+                {"Empty input followed by DONE\nDONE\n", "Empty input followed by DONE"},
+
+
+        };
+
+        for (Object[] testCase : testCases) {
+            String input = (String) testCase[0];
+            String expectedOutput = (String) testCase[1];
+
+            InputStream testInput = new ByteArrayInputStream(input.getBytes());
+            ConsoleReader consoleReader = new ConsoleReader(testInput);
+
+            String actualOutput = consoleReader.readMultipleLines("DONE");
+
+            assertEquals(actualOutput, expectedOutput, "Input does not match expected output for input: " + input);
+        }
     }
 }
