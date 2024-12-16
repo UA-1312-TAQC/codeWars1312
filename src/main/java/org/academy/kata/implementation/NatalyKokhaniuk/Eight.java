@@ -39,7 +39,10 @@ public class Eight implements IEight {
 
     @Override
     public double TwoDecimalPlaces(double number) {
-        return 0;
+        double res=0.00;
+        res=Math.round(number*100.00)/100.00;
+        System.out.println(number+" is rounded "+res);
+        return res;
     }
 
     @Override
