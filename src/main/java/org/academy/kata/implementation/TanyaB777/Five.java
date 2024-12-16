@@ -72,7 +72,7 @@ public class Five implements IFive {
         double sqrtTerm = Math.sqrt(1 + 4 * m);
         double x = ((2 * m + 1) - sqrtTerm) / (2 * m);
 
-        if (Double.isNaN(x) || Double.isInfinite(x)) {
+        if (Double.isInfinite(x)) {
             throw new ArithmeticException("Result is not a valid double.");
         }
 

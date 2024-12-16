@@ -1,10 +1,8 @@
 package org.academy.kata.implementation.TanyaB777;
 
-
 import org.academy.kata.IEight;
 
 import java.math.BigInteger;
-
 import java.util.Arrays;
 
 public class Eight implements IEight {
@@ -71,7 +69,6 @@ public class Eight implements IEight {
         int[] result = new int[2];
         long countPositive = 0;
         long sumNegative = 0;
-
 
         for (int value : input) {
             if (value == 0) {

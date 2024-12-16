@@ -61,9 +61,9 @@ public enum Author {
         return five;
     }
 
-    public static Author getAuthorById(int id){
-        for(Author author : values()) {
-            if (author.id == id){
+    public static Author getAuthorById(int id) {
+        for (Author author : values()) {
+            if (author.id == id) {
                 return author;
             }
         }
@@ -71,15 +71,13 @@ public enum Author {
     }
 
     public static void printAuthors() {
-        for(Author author :values()) {
+        for (Author author : values()) {
             System.out.println(author);
         }
-
     }
 
-
-//    @Override
+    @Override
     public String toString() {
-        return id + " " + name ;
+        return id + " " + name;
     }
 }
