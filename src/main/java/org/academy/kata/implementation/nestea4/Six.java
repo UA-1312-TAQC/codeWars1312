@@ -1,8 +1,9 @@
 package org.academy.kata.implementation.nestea4;
 
+import org.academy.kata.Base;
 import org.academy.kata.ISix;
 
-public class Six implements ISix {
+public class Six extends Base implements ISix {
     @Override
     public long findNb(long m) {
         long n = 1;

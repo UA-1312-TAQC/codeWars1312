@@ -1,8 +1,9 @@
 package org.academy.kata.implementation.nestea4;
 
+import org.academy.kata.Base;
 import org.academy.kata.ISeven;
 
-public class Seven implements ISeven {
+public class Seven extends Base implements ISeven {
     @Override
     public long newAvg(double[] arr, double navg) {
         double curSum = 0;
