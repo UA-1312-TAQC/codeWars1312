@@ -14,7 +14,7 @@ public class Seven implements ISeven {
         double donation = navg * (arr.length + 1) - sum;
 
         if (donation <= 0) {
-            throw new IllegalArgumentException("The required donation must be greater than 0.");
+            return 0;
         }
 
         return (long) Math.ceil(donation);
