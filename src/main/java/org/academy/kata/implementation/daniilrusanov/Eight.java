@@ -88,7 +88,7 @@ public class Eight implements IEight {
     }
 
     @Override
-    public boolean am_i_wilson(double n) {
+    public boolean am_i_wilson(long n) {
         if(!isPrime(n)) return false;
         BigInteger factorialVal = factorial(n-1);
         BigInteger modulus = BigInteger.valueOf(n).multiply(BigInteger.valueOf(n));
