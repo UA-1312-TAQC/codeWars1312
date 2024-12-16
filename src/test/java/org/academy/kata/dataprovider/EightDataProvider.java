@@ -8,23 +8,30 @@ import java.util.List;
 
 public class EightDataProvider extends BaseDataProvider {
 
-    @DataProvider(name = "data-Liters")
-    public static Iterator<Object[]> dpLiters() {
+    @DataProvider(name = "data-Liters_positive")
+    public static Iterator<Object[]> dpLiters_positive() {
         final List<Object[]> inputs = new ArrayList<>();
-        //positive
-        inputs.add(new Object[]{5, 2, false});
-        inputs.add(new Object[]{55, 27, false});
-        inputs.add(new Object[]{2, 1, false});
-        inputs.add(new Object[]{0.97, 0, false});
-        inputs.add(new Object[]{14.64, 7, false});
-        inputs.add(new Object[]{1600.20, 800, false});
-        inputs.add(new Object[]{80, 40, false});
-        inputs.add(new Object[]{0, 0, false});
-        inputs.add(new Object[]{Integer.MAX_VALUE * 2.0, 2147483647, false});
-        //negative
-        inputs.add(new Object[]{-1, -1, true});
-        inputs.add(new Object[]{-77.8, -39, true});
-        inputs.add(new Object[]{Integer.MAX_VALUE * 2.0 + 1, 0, true});
+
+        inputs.add(new Object[]{5, 2});
+        inputs.add(new Object[]{55, 27});
+        inputs.add(new Object[]{2, 1});
+        inputs.add(new Object[]{0.97, 0});
+        inputs.add(new Object[]{14.64, 7});
+        inputs.add(new Object[]{1600.20, 800});
+        inputs.add(new Object[]{80, 40});
+        inputs.add(new Object[]{0, 0});
+        inputs.add(new Object[]{Integer.MAX_VALUE * 2.0, 2147483647});
+
+        return combineData(inputs, EIGHTS);
+    }
+
+    @DataProvider(name = "data-Liters_negative")
+    public static Iterator<Object[]> dpLiters_negative() {
+        final List<Object[]> inputs = new ArrayList<>();
+
+        inputs.add(new Object[]{-1, -1});
+        inputs.add(new Object[]{-77.8, -3});
+        inputs.add(new Object[]{Integer.MAX_VALUE * 2.0 + 1, 0});
 
         return combineData(inputs, EIGHTS);
     }
