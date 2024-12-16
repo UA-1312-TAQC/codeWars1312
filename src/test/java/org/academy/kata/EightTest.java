@@ -2,12 +2,24 @@ package org.academy.kata;
 
 import org.academy.kata.dataprovider.EightDataProvider;
 import org.academy.kata.implementation.nestea4.Eight;
+import org.academy.utils.Author;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class EightTest extends EightDataProvider {
 
+    private static IEight implementation;
+    @BeforeTest
+    public void setImplementation(){
+        int authorId = 1; //Move to parameters
+        try {
+            implementation = Author.getAuthorById(authorId).getEight();
+        }catch(NullPointerException ex){
+            throw new RuntimeException("The kata5 implementation for author with id" + authorId +
+                    " not found");
+        }
+    }
 
     @Test(dataProvider = "data-Liters")
     public void testLiters(IEight eight, double in, int expected) {
@@ -42,8 +54,10 @@ public class EightTest extends EightDataProvider {
     public void testStringToNumber() {
     }
 
-    @Test
-    public void testTwoDecimalPlaces() {
+    @Test(dataProvider = "twoDecimalPlacesData")
+    public void testTwoDecimalPlaces(double expected, double data, double delta) {
+        double actual = implementation.TwoDecimalPlaces(data);
+        Assert.assertEquals(actual, expected, delta);
     }
 
     @Test

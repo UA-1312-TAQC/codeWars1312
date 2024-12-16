@@ -70,6 +70,15 @@ public enum Author {
         return null;
     }
 
+    public static Author getAuthorByName(String name){
+        for(Author author : values()) {
+            if (author.name.equals(name)){
+                return author;
+            }
+        }
+        return null;
+    }
+
     public static void printAuthors() {
         for(Author author :values()) {
             System.out.println(author);
