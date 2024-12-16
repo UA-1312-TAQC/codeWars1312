@@ -17,8 +17,10 @@ public class SixTest extends SixDataProvider {
         }
     }
 
-    @Test
-    public void testBalance() {
+    @Test(dataProvider = "data-balance")
+    public void testBalance(ISix six, String book, String expected) {
+        String actual = six.balance(book);
+        Assert.assertEquals(actual, expected);
     }
 
     @Test(description="Positive testing of Task F", dataProvider="data-F-Positive",

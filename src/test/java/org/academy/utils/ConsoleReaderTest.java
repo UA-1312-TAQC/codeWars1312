@@ -9,6 +9,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.*;
+import java.math.BigInteger;
 import java.util.Arrays;
 
 import org.academy.utils.dataprovider.LongDataProvider.*;
@@ -96,6 +97,33 @@ public class ConsoleReaderTest extends UtilsDataProvider{
 
     @Test
     public void testReadBigInteger() {
+        String positiveBigIntInput = "1234567890123456789012345678901234567890\n";
+        InputStream inputStream = new ByteArrayInputStream(positiveBigIntInput.getBytes());
+        ConsoleReader consoleReader = new ConsoleReader(inputStream);
+        BigInteger actual = consoleReader.readBigInteger();
+        BigInteger expected = new BigInteger("1234567890123456789012345678901234567890");
+        Assert.assertEquals(actual, expected, "The BigInteger should match the input.");
+
+        String negativeBigIntInput = "-1234567890123456789012345678901234567890\n";
+        inputStream = new ByteArrayInputStream(negativeBigIntInput.getBytes());
+        consoleReader = new ConsoleReader(inputStream);
+        actual = consoleReader.readBigInteger();
+        expected = new BigInteger("-1234567890123456789012345678901234567890");
+        Assert.assertEquals(actual, expected, "The BigInteger should match the input.");
+
+        String zeroBigIntInput = "0\n";
+        inputStream = new ByteArrayInputStream(zeroBigIntInput.getBytes());
+        consoleReader = new ConsoleReader(inputStream);
+        actual = consoleReader.readBigInteger();
+        expected = BigInteger.ZERO;
+        Assert.assertEquals(actual, expected, "The BigInteger should be zero.");
+
+        String invalidBigIntInput = "abc123\n";
+        inputStream = new ByteArrayInputStream(invalidBigIntInput.getBytes());
+        consoleReader = new ConsoleReader(inputStream);
+        actual = consoleReader.readBigInteger();
+        expected = BigInteger.ZERO;
+        Assert.assertEquals(actual, expected, "The BigInteger should be zero when input is invalid.");
     }
 
     @Test(dataProviderClass = LongDataProvider.class, dataProvider = "validGreaterThanZero")

@@ -152,6 +152,54 @@ public class SixDataProvider extends BaseDataProvider {
         return combineData(inputs, SIX);
     }
 
+    @DataProvider(name = "data-balance")
+    public static Iterator<Object[]> dpBalance() {
+        final List<Object[]> inputs = new ArrayList<>();
+        // positive testing
+        inputs.add(new Object[]{
+                "1000.00\n125 Market 125.45\n126 Hardware 34.95\n127 Video 7.45\n128 Book 14.32\n129 Gasoline 16.10",
+                "Original_Balance:_1000.00\n125_Market_125.45_Balance_874.55\n126_Hardware_34.95_Balance_839.60\n127_Video_7.45_Balance_832.15\n128_Book_14.32_Balance_817.83\n129_Gasoline_16.10_Balance_801.73\nTotal_expense__198.27\nAverage_expense__39.65"
+        });
+        inputs.add(new Object[]{
+                "500.00\n101 Groceries 50.00",
+                "Original_Balance:_500.00\n101_Groceries_50.00_Balance_450.00\nTotal_expense__50.00\nAverage_expense__50.00"
+        });
+        inputs.add(new Object[]{
+                "1200.00\n201 Coffee 2.50\n202 Lunch 10.00\n203 Bus 3.00",
+                "Original_Balance:_1200.00\n201_Coffee_2.50_Balance_1197.50\n202_Lunch_10.00_Balance_1187.50\n203_Bus_3.00_Balance_1184.50\nTotal_expense__15.50\nAverage_expense__5.17"
+        });
+        inputs.add(new Object[]{
+                "1000.00",
+                "Original_Balance:_1000.00\nTotal_expense__0.00\nAverage_expense__0.00"
+        });
+        inputs.add(new Object[]{
+                "800.00\n101 Clothing 50.00\n102 Shoes 70.00\n103 Jacket 80.00",
+                "Original_Balance:_800.00\n101_Clothing_50.00_Balance_750.00\n102_Shoes_70.00_Balance_680.00\n103_Jacket_80.00_Balance_600.00\nTotal_expense__200.00\nAverage_expense__66.67"
+        });
+        // negative testing
+        inputs.add(new Object[]{
+                "1000.00\n125 Market OneHundred",
+                "java.lang.NumberFormatException: For input string: \"OneHundred\""
+        });
+        inputs.add(new Object[]{
+                "1000.00\n126 Hardware",
+                "java.lang.ArrayIndexOutOfBoundsException: Index 2 out of bounds for length 2"
+        });
+        inputs.add(new Object[]{
+                "1000.00\n127 50.00",
+                "java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1"
+        });
+        inputs.add(new Object[]{
+                "1000.00\n128 Book@ 14.32",
+                "Original_Balance:_1000.00\n128_Book_14.32_Balance_985.68\nTotal_expense__14.32\nAverage_expense__14.32"
+        });
+        inputs.add(new Object[]{
+                "1500.00\n\n201 Groceries 50.00\n\n202 Gasoline 30.00",
+                "Original_Balance:_1500.00\n201_Groceries_50.00_Balance_1450.00\n202_Gasoline_30.00_Balance_1420.00\nTotal_expense__80.00\nAverage_expense__40.00"
+        });
+        return combineData(inputs, SIX);
+    }
+
     @DataProvider(name="data-F-Positive")
     public static Iterator<Object[]> dpFPositive() {
         final List<Object[]> inputs = new ArrayList<>();
