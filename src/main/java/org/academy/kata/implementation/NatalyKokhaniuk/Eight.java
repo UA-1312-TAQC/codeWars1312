@@ -29,7 +29,20 @@ public class Eight implements IEight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (array == null || array.length == 0) {
+            return new int[] {};
+        }
+        int count=0,sum=0;
+        String resStr="\nCount of positives and sum of negatives :\n[";
+        for (int i = 0; i < array.length; i++) {
+            resStr+=array[i];
+            if(i != array.length-1)resStr+=", ";
+            if(array[i]>0) count++;
+            if(array[i]<0) sum+=array[i];
+        }
+        resStr+="] -> ["+count+", "+sum +"].";
+        System.out.print(resStr);
+        return new int[] {count,sum};
     }
 
     @Override
