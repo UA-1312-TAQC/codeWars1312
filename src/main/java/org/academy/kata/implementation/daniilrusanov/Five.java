@@ -12,7 +12,12 @@ public class Five implements IFive {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        int zeros = 0;
+        while (n > 0) {
+            n /= 5;
+            zeros += n;
+        }
+        return zeros;
     }
 
     @Override
