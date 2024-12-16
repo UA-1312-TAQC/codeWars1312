@@ -24,4 +24,15 @@ public class FiveDataProvider extends BaseDataProvider {
 
         return combineData(inputs, FIFTH);
     }
+    @DataProvider(name = "data-Zeros")
+    public static Iterator<Object[]> dpZeros() {
+        final List<Object[]> inputs = new ArrayList<>();
+        inputs.add(new Object[]{6,1});
+        inputs.add(new Object[]{0,0});
+        inputs.add(new Object[]{14,2});
+        inputs.add(new Object[]{12,2});
+
+        return combineData(inputs, FIFTH);
+
+    }
 }
