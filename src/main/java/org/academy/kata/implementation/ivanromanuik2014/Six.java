@@ -1,6 +1,8 @@
 package org.academy.kata.implementation.ivanromanuik2014;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -41,7 +43,7 @@ public class Six implements ISix {
             if (!line.isEmpty()) {
                 String[] parts = line.split(" ");
                 if (parts.length < 3)
-                    continue; // Пропустити некоректний рядок
+                    continue;
 
                 String checkNumber = parts[0];
                 String category = parts[1];
@@ -72,28 +74,23 @@ public class Six implements ISix {
 
     @Override
     public double mean(String town, String strng) {
-        // Розбиваємо вхідний рядок на окремі міста
+
         String[] townsData = strng.split("\n");
 
-        // Перебираємо кожне місто
         for (String townData : townsData) {
-            // Розділяємо на назву міста та дані про опади
             String[] parts = townData.split(":");
             String name = parts[0].trim();
             String[] rainfallData = parts[1].trim().split(",");
 
-            // Якщо знайдено потрібне місто, обчислюємо середнє
             if (name.equals(town)) {
                 double sum = 0;
                 for (String rainfall : rainfallData) {
-                    // Отримуємо значення опадів, розділяючи за пробілом
                     String[] monthData = rainfall.split(" ");
                     sum += Double.parseDouble(monthData[1]);
                 }
                 return sum / rainfallData.length;
             }
         }
-        // Якщо місто не знайдено, повертаємо -1
         return -1.0;
     }
 
@@ -119,7 +116,6 @@ public class Six implements ISix {
                     String[] monthData = rainfall.split(" ");
                     variance += Math.pow(Double.parseDouble(monthData[1]) - mean, 2);
                 }
-                // Для вибіркової дисперсії ділимо на (n-1)
                 return variance / (rainfallData.length);
             }
         }
@@ -195,6 +191,36 @@ public class Six implements ISix {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return "";
+
+        if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) {
+            return "";
+        }
+
+        Map<String, Integer> countOfBookInCategory = new HashMap<>();
+
+        for (String category : lstOf1stLetter) {
+            countOfBookInCategory.put(category, 0);
+        }
+
+        for (String bookName : lstOfArt) {
+            String[] parts = bookName.split(" ");
+            String category = parts[0].substring(0, 1);
+            int quantity = Integer.parseInt(parts[1]);
+
+            if (countOfBookInCategory.containsKey(category)) {
+                countOfBookInCategory.put(category, countOfBookInCategory.get(category) + quantity);
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < lstOf1stLetter.length; i++) {
+            String category = lstOf1stLetter[i];
+            int count = countOfBookInCategory.get(category);
+            result.append("(").append(category).append(" : ").append(count).append(")");
+            if (i < lstOf1stLetter.length - 1) {
+                result.append(" - ");
+            }
+        }
+        return result.toString();
     }
 }
