@@ -60,7 +60,30 @@ public class Five implements IFive {
 
     @Override
     public double solve(double m) {
-        return 0;
+        if (m <= 0) {
+            throw new IllegalArgumentException("Parameter m must be greater than 0.");
+        }
+
+        double left = 0.0;
+        double right = 1.0;
+        double epsilon = 1e-12;
+
+        while ((right - left) > epsilon) {
+            double mid = (left + right) / 2;
+            double s = sum(mid);
+
+            if (s > m) {
+                right = mid;
+            } else {
+                left = mid;
+            }
+        }
+
+        return (left + right) / 2;
+    }
+
+    private static double sum(double x) {
+        return x / Math.pow(1 - x, 2);
     }
 
     @Override
